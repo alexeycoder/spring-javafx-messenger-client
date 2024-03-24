@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: spring-javafx-messenger
+  main:
+    web-application-type: none
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+    url: jdbc:h2:file:./cache
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    properties:
+      '[hibernate.current_session_context_class]': org.springframework.orm.hibernate5.SpringSessionContext
+      '[hibernate.show_sql]': true
+      '[hibernate.format_sql]': true
+      '[hibernate.highlight_sql]': true
+    hibernate:
+      ddl-auto: create
+
+logging:
+  file: 
+    name: ./logs/app.log
+    clean-history-on-start: true
+  level:
+    ROOT: warn
+    '[org.springframework]': info
+    '[org.hibernate]': info
+  pattern:
+    console: "%clr(%d{HH:mm}){faint} %clr(%5p) %clr(${PID:- }){magenta} %clr(%25.25logger{0}){cyan} %clr(:){faint} %m%n%wEx"
