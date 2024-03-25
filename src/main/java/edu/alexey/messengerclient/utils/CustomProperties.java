@@ -21,6 +21,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.stereotype.Component;
 
+import edu.alexey.messengerclient.bundles.LocaleManager;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -30,9 +31,34 @@ import lombok.extern.slf4j.Slf4j;
 public class CustomProperties {
 
 	static final String FILENAME = "custom.properties";
+	static final String KEY_SERVER_HOST = "host";
+	static final String KEY_SERVER_PORT = "8080";
 	static final String KEY_LOGIN = "login";
 	static final String KEY_USERNAME = "username";
 	static final String KEY_PASSWORD = "password";
+	static final String KEY_LANGUAGE = "language";
+
+	static final String DEFAULT_SERVER_HOST = "localhost";
+	static final String DEFAULT_SERVER_PORT = "8080";
+	static final String DEFAULT_LANGUAGE = LocaleManager.LANGUAGES.getFirst().getCode();
+
+	public CustomProperties() {
+		try {
+			load();
+		} catch (IOException e) {}
+	}
+
+	@Getter
+	@Setter
+	private String language;
+
+	@Getter
+	@Setter
+	private String serverHost;
+
+	@Getter
+	@Setter
+	private String serverPort;
 
 	@Getter
 	@Setter
@@ -68,8 +94,8 @@ public class CustomProperties {
 		}
 	}
 
-	public void load() throws IOException {
-		clear();
+	private void load() throws IOException {
+		//clear();
 
 		File file = Path.of(FILENAME).toFile();
 		if (!file.exists()) {
@@ -78,28 +104,39 @@ public class CustomProperties {
 
 		Properties properties = new Properties();
 		try (FileInputStream inputStream = new FileInputStream(file)) {
+
 			properties.load(inputStream);
+			load(properties);
+
 		} catch (IOException e) {
 			log.error("Unable to read custom properties.", e);
-			throw e;
+			clear();
 		}
-		load(properties);
 	}
 
 	private void load(Properties properties) {
-		this.login = properties.getProperty(KEY_LOGIN);
-		this.username = properties.getProperty(KEY_USERNAME);
-		this.passwordEncoded = properties.getProperty(KEY_PASSWORD);
+		this.language = properties.getProperty(KEY_LANGUAGE, DEFAULT_LANGUAGE);
+		this.serverHost = properties.getProperty(KEY_SERVER_HOST, DEFAULT_SERVER_HOST);
+		this.serverPort = properties.getProperty(KEY_SERVER_PORT, DEFAULT_SERVER_PORT);
+		this.login = properties.getProperty(KEY_LOGIN, "");
+		this.username = properties.getProperty(KEY_USERNAME, "");
+		this.passwordEncoded = properties.getProperty(KEY_PASSWORD, "");
 	}
 
 	private void clear() {
-		login = null;
-		username = null;
-		passwordEncoded = null;
+		language = DEFAULT_LANGUAGE;
+		serverHost = DEFAULT_SERVER_HOST;
+		serverPort = DEFAULT_SERVER_PORT;
+		login = "";
+		username = "";
+		passwordEncoded = "";
 	}
 
 	public void save() throws IOException {
 		Properties properties = new Properties();
+		properties.setProperty(KEY_LANGUAGE, language);
+		properties.setProperty(KEY_SERVER_HOST, serverHost);
+		properties.setProperty(KEY_SERVER_PORT, serverPort);
 		properties.setProperty(KEY_LOGIN, login);
 		properties.setProperty(KEY_USERNAME, username);
 		properties.setProperty(KEY_PASSWORD, passwordEncoded);
@@ -200,5 +237,4 @@ public class CustomProperties {
 	//
 	//		System.out.println(customProperties.decode(encodedPass));
 	//	}
-
 }

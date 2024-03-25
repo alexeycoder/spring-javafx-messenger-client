@@ -5,6 +5,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.Optional;
 
 public class LocaleManager {
 
@@ -28,7 +29,15 @@ public class LocaleManager {
 			Messages.actualizeResources();
 			pcs.firePropertyChange("current", oldValue, current);
 		}
+	}
 
+	public static void setCurrent(String code) {
+		Optional<Lang> langOpt = LANGUAGES.stream().filter(l -> l.getCode().equalsIgnoreCase(code)).findAny();
+		if (langOpt.isPresent()) {
+			current = langOpt.get();
+		} else {
+			throw new IllegalArgumentException();
+		}
 	}
 
 	public static void addLangChangeListener(PropertyChangeListener listener) {
