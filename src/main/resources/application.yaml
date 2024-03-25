@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-javafx-messenger
+    name: spring-javafx-messenger-client
   main:
     web-application-type: none
 

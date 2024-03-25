@@ -21,6 +21,8 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.stereotype.Component;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
@@ -29,22 +31,18 @@ public class CustomProperties {
 
 	static final String FILENAME = "custom.properties";
 	static final String KEY_LOGIN = "login";
+	static final String KEY_USERNAME = "username";
 	static final String KEY_PASSWORD = "password";
 
+	@Getter
+	@Setter
 	private String login;
 
+	@Getter
+	@Setter
+	private String username;
+
 	private String passwordEncoded;
-
-	public CustomProperties() {
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
 
 	public String getPassword() {
 		if (passwordEncoded == null) {
@@ -90,17 +88,20 @@ public class CustomProperties {
 
 	private void load(Properties properties) {
 		this.login = properties.getProperty(KEY_LOGIN);
+		this.username = properties.getProperty(KEY_USERNAME);
 		this.passwordEncoded = properties.getProperty(KEY_PASSWORD);
 	}
 
 	private void clear() {
 		login = null;
+		username = null;
 		passwordEncoded = null;
 	}
 
 	public void save() throws IOException {
 		Properties properties = new Properties();
 		properties.setProperty(KEY_LOGIN, login);
+		properties.setProperty(KEY_USERNAME, username);
 		properties.setProperty(KEY_PASSWORD, passwordEncoded);
 
 		File file = Path.of(FILENAME).toFile();
