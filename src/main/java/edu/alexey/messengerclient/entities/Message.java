@@ -27,13 +27,17 @@ public class Message implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "message_id")
 	private Integer messageId;
 
-	@Column(name = "message_uuid", nullable = false)
+	@Column(name = "message_uuid", nullable = false, updatable = false)
 	private UUID messageUuid;
 
-	@Column(name = "timestamp", nullable = false)
-	private LocalDateTime timestamp;
+	@Column(name = "sent_at", nullable = false, updatable = false)
+	private LocalDateTime sentAt;
+
+	@Column(name = "content", nullable = false, updatable = false)
+	private String content;
 
 	@ManyToOne
 	@JoinColumn(name = "conversation_id", referencedColumnName = "conversation_id")

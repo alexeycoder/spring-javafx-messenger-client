@@ -3,7 +3,8 @@ package edu.alexey.messengerclient.entities;
 import java.io.Serializable;
 import java.util.UUID;
 
-import jakarta.persistence.Basic;
+import jakarta.persistence.Access;
+import jakarta.persistence.AccessType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -36,41 +37,41 @@ public class Contact implements Serializable {
 
 	public Contact(UUID userUuid, String username) {
 		this.userUuid = userUuid;
-		this.usernameProperty = new SimpleStringProperty(username);
+		this.displayNameProperty = new SimpleStringProperty(username);
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "contact_id")
 	@EqualsAndHashCode.Include
 	@ToString.Include
 	@Getter
 	@Setter
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "contact_id")
 	private Integer contactId;
 
-	@Column(name = "user_uuid", nullable = false, unique = true)
 	@EqualsAndHashCode.Include
 	@Getter
 	@Setter
+	@Column(name = "user_uuid", nullable = false, unique = true)
 	private UUID userUuid;
 
 	@Transient
-	private final StringProperty usernameProperty;
+	private final StringProperty displayNameProperty;
 
-	@Column(name = "username", nullable = false)
-	@Basic
+	@Access(AccessType.PROPERTY)
 	@EqualsAndHashCode.Include
 	@ToString.Include
-	public String getUsername() {
-		return usernameProperty.get();
+	@Column(name = "display_name", nullable = false)
+	public String getDisplayName() {
+		return displayNameProperty.get();
 	}
 
-	public void setUsername(String username) {
-		this.usernameProperty.set(username);
+	public void setDisplayName(String username) {
+		this.displayNameProperty.set(username);
 	}
 
-	public StringProperty usernameProperty() {
-		return usernameProperty;
+	public StringProperty displayNameProperty() {
+		return displayNameProperty;
 	}
 
 	@OneToOne(mappedBy = "contact", fetch = FetchType.LAZY) // mappedBy -- с помощью какого поля идёт обратная связь (поле в Conversation)

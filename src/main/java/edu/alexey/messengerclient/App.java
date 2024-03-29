@@ -2,6 +2,7 @@ package edu.alexey.messengerclient;
 
 import java.beans.PropertyChangeEvent;
 import java.util.Optional;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -35,6 +36,7 @@ public class App extends JavaFxAsSpringBeanApplication {
 
 	public static void main(String[] args) {
 
+		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 		System.setProperty("javafx.preloader", BasicPreloader.class.getCanonicalName());
 		launchSpringJavaFxApp(App.class, args);
 	}
