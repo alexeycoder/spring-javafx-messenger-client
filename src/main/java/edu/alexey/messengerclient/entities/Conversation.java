@@ -3,7 +3,6 @@ package edu.alexey.messengerclient.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,8 +23,8 @@ import lombok.ToString;
 @Table(name = "conversations")
 @Getter
 @Setter
-@EqualsAndHashCode
-@ToString(exclude = { "messages", "lastMessageUuid" })
+@EqualsAndHashCode(exclude = { "messages" })
+@ToString(exclude = { "messages" })
 public class Conversation implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -38,9 +37,6 @@ public class Conversation implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "contact_id", referencedColumnName = "contact_id")
 	private Contact contact;
-
-	@Column(name = "last_message_uuid", nullable = true)
-	private UUID lastMessageUuid;
 
 	@OneToMany(mappedBy = "conversation", fetch = FetchType.LAZY) // mappedBy -- с помощью какого поля идёт обратная связь (поле в Message)
 	private List<Message> messages = new ArrayList<Message>();

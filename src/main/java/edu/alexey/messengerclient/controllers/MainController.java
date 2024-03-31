@@ -1,5 +1,6 @@
 package edu.alexey.messengerclient.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,23 +9,39 @@ import org.springframework.stereotype.Controller;
 import edu.alexey.messengerclient.bundles.Lang;
 import edu.alexey.messengerclient.bundles.Messages;
 import edu.alexey.messengerclient.dto.SignupDto;
+import edu.alexey.messengerclient.entities.Conversation;
+import edu.alexey.messengerclient.entities.Message;
 import edu.alexey.messengerclient.services.ConnectionService;
+import edu.alexey.messengerclient.services.ConversationService;
+import edu.alexey.messengerclient.services.MessageService;
+import edu.alexey.messengerclient.services.MessagingService;
 import edu.alexey.messengerclient.utils.CustomProperties;
 import edu.alexey.messengerclient.utils.DialogManager;
+import edu.alexey.messengerclient.view.ConversationListViewCell;
+import edu.alexey.messengerclient.view.MessageListViewCell;
 import edu.alexey.messengerclient.view.SignupView;
 import edu.alexey.messengerclient.viewmodel.SignupViewModel;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -39,10 +56,24 @@ public class MainController {
 	private final BooleanProperty isInitializedProperty = new SimpleBooleanProperty(false);
 
 	@Autowired
-	private ConnectionService connectionService;
-
-	@Autowired
 	private CustomProperties customProperties;
+	@Autowired
+	private ConnectionService connectionService;
+	@Autowired
+	private MessagingService messagingService;
+	@Autowired
+	private ConversationService conversationService;
+	@Autowired
+	private MessageService messageService;
+
+	//	@Autowired
+	//	private MessageRepository messageRepository;
+	//	@Autowired
+	//	private ConversationRepository conversationRepository;
+	//	@Autowired
+	//	private ContactRepository contactRepository;
+	//	@Autowired
+	//	private TransactionTemplate transactionTemplate;
 
 	@Autowired
 	private SignupView signupView;
@@ -59,16 +90,17 @@ public class MainController {
 
 	@Getter
 	@FXML
-	private Label labelDisplayName;
+	private TextField textFieldDisplayName;
 	@Getter
 	@FXML
-	private Label labelUsername;
+	private TextField textFieldUsername;
 	@Getter
 	@FXML
-	private Label labelPassword;
+	private PasswordField passwordField;
 	@Getter
 	@FXML
 	private Button buttonConnect;
+
 	@Getter
 	@FXML
 	private Label labelConnectionStatus;
@@ -77,15 +109,137 @@ public class MainController {
 	private Circle indicatorConnectionStatus;
 
 	@FXML
+	private Accordion accordionSettings;
+	@FXML
+	private Tab tabCommunication;
+
+	@FXML
+	private TabPane tabPaneMain;
+
+	@FXML
+	private Label labelCurrentConversation;
+
+	@FXML
+	private TextArea textAreaMessageToSend;
+
+	@FXML
+	private ListView<Conversation> listViewConversations;
+
+	@FXML
+	private ListView<String> listViewContacts;
+
+	@FXML
+	private ListView<Message> listViewCurrentConversation;
+
+	private final ObservableList<Conversation> conversations;
+	private final ObservableList<Message> conversationMessages;
+
+	public MainController() {
+		this.conversations = FXCollections.observableArrayList();
+		this.conversationMessages = FXCollections.observableArrayList();
+	}
+
+	@FXML
 	private void initialize() {
 		isInitializedProperty.set(false);
+		//
+		accordionSettings.setExpandedPane(accordionSettings.getPanes().getFirst());
 
+		listViewCurrentConversation.setCellFactory(lv -> new MessageListViewCell());
+		listViewCurrentConversation.setItems(conversationMessages);
+
+		listViewConversations.setCellFactory(lv -> new ConversationListViewCell());
+		listViewConversations.setItems(conversations);
+
+		listViewConversations.getSelectionModel().selectedItemProperty()
+				.addListener(this::handleListViewConversationsSelectionChanged);
+
+		listViewCurrentConversation.setOnScrollFinished(event -> {
+			if (event.getSource() instanceof Node node) {
+				Platform.runLater(() -> {
+					node.autosize();
+					listViewCurrentConversation.getChildrenUnmodifiable().forEach(Node::autosize);
+					listViewCurrentConversation.autosize();
+				});
+			}
+		});
+
+		loadCache();
+
+		messagingService.setOnUpdatedCallback((t, u) -> {});
+
+		//
 		isInitializedProperty.set(true);
+	}
+
+	private void loadCache() {
+		List<Conversation> conversations = conversationService.findAll();
+		this.conversations.clear();
+		this.conversations.addAll(conversations);
+	}
+
+	private void handleListViewConversationsSelectionChanged(
+			ObservableValue<? extends Conversation> observable,
+			Conversation oldValue,
+			Conversation newValue) {
+
+		conversationMessages.clear();
+		if (newValue == null) {
+			Platform.runLater(() -> labelCurrentConversation
+					.setText(Messages.getString("ui.main.communication.select_conversation")));
+			return;
+		}
+
+		//		String displayName = transactionTemplate.execute(status -> newValue.getContact().getDisplayName());
+		List<Message> messages = messageService.findAllByConversation(newValue);
+
+		Platform.runLater(() -> {
+			labelCurrentConversation.setText(newValue.getContact().getDisplayName());
+			conversationMessages.addAll(messages);
+			listViewCurrentConversation.autosize();
+			listViewCurrentConversation.scrollTo(messages.size() - 1);
+		});
+
 	}
 
 	public BooleanProperty isInitializedProperty() {
 		return isInitializedProperty;
 	}
+
+	//	@PostConstruct
+	//	private void init() {
+	//
+	//		Faker faker = new Faker();
+	//
+	//		Contact contact1 = new Contact(UUID.randomUUID(), faker.name().username());
+	//		Contact contact2 = new Contact(UUID.randomUUID(), faker.name().username());
+	//		contactRepository.saveAllAndFlush(List.of(contact1, contact2));
+	//
+	//		Conversation conversation1 = new Conversation();
+	//		conversation1.setContact(contact1);
+	//		Conversation conversation2 = new Conversation();
+	//		conversation2.setContact(contact2);
+	//		conversationRepository.saveAllAndFlush(List.of(conversation1, conversation2));
+	//
+	//		ArrayList<Message> messages = new ArrayList<Message>();
+	//		for (int i = 0; i < 20; ++i) {
+	//
+	//			Message message = new Message();
+	//			message.setMessageUuid(UUID.randomUUID());
+	//			message.setConversation(conversation1);
+	//			message.setOwn(ThreadLocalRandom.current().nextBoolean());
+	//			message.setSentAt(faker.date()
+	//					.past(10, TimeUnit.DAYS)
+	//					.toInstant().atZone(ZoneId.systemDefault())
+	//					.toLocalDateTime());
+	//			message.setContent(faker.lorem().sentence(ThreadLocalRandom.current().nextInt(5, 20)));
+	//			messages.add(message);
+	//			System.out.println("TEST MSG: " + message);
+	//		}
+	//		messageRepository.saveAllAndFlush(messages);
+	//
+	//		System.out.println("TOP = " + messageRepository.getTopBy(Sort.by("sentAt", "messageId").descending()));
+	//	}
 
 	@FXML
 	public void actionCheckConnection(ActionEvent event) {
@@ -158,6 +312,28 @@ public class MainController {
 
 		indicatorConnectionStatus.setFill(Color.GREEN);
 		labelConnectionStatus.setText(Messages.getString("ui.main.status.connected"));
+
+		//printConversationsForTest();
+
+		tabPaneMain.getSelectionModel().selectNext();
 	}
+
+	//	private void printConversationsForTest() {
+	//
+	//		transactionTemplate.executeWithoutResult(status -> {
+	//
+	//			List<Conversation> conversations = conversationRepository.findAll();
+	//			System.out.println("CONVERSATIONS:");
+	//			conversations.forEach(c -> {
+	//				System.out.println("\n\t" + c.toString());
+	//				c.getMessages().forEach(m -> {
+	//					System.out.println("\t\t" + m.toString());
+	//				});
+	//			});
+	//			this.conversations.clear();
+	//			this.conversations.addAll(conversations);
+	//
+	//		});
+	//	}
 
 }

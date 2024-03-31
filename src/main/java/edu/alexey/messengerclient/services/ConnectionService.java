@@ -20,13 +20,16 @@ public class ConnectionService {
 	static final String URI_SCHEME = "http";
 
 	private final CustomProperties customProperties;
+	private final MessagingService messagingService;
+
 	private final WebClient webClient;
 	private URI baseUri;
 	private String username;
 	private String password;
 
-	public ConnectionService(CustomProperties customProperties) {
+	public ConnectionService(CustomProperties customProperties, MessagingService messagingService) {
 		this.customProperties = customProperties;
+		this.messagingService = messagingService;
 		this.webClient = WebClient.builder().build();
 		actualizeFromCustomProperties();
 		this.customProperties.addPropertyChangeListener(evt -> actualizeFromCustomProperties());
@@ -129,18 +132,7 @@ public class ConnectionService {
 
 	public void login() {
 
-		URI uri = UriComponentsBuilder.fromUri(baseUri)
-				.path("/client")
-				.path(customProperties.getClientUuid().toString())
-				.build().toUri();
-
-		webClient.get().uri(uri)
-				.headers(headers -> {
-					headers.setBasicAuth(username, password);
-				})
-				.retrieve()
-				.bodyToMono(Void.class)
-				.block();
+		messagingService.start(baseUri, customProperties.getClientUuid(), username, password);
 	}
 
 }

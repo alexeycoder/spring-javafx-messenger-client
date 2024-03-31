@@ -48,6 +48,7 @@ public class CustomProperties {
 	static final String DEFAULT_LANGUAGE = LocaleManager.LANGUAGES.getFirst().getCode();
 
 	private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+	private volatile boolean suppressPropertyChangeEvent;
 
 	public CustomProperties() {
 		try {
@@ -75,7 +76,8 @@ public class CustomProperties {
 		String oldValue = this.language;
 		if (!Objects.equal(language, oldValue)) {
 			this.language = language;
-			pcs.firePropertyChange("language", oldValue, language);
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("language", oldValue, language);
 		}
 	}
 
@@ -87,7 +89,8 @@ public class CustomProperties {
 		String oldValue = this.serverHost;
 		if (!Objects.equal(serverHost, oldValue)) {
 			this.serverHost = serverHost;
-			pcs.firePropertyChange("serverHost", oldValue, serverHost);
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("serverHost", oldValue, serverHost);
 		}
 	}
 
@@ -99,7 +102,8 @@ public class CustomProperties {
 		String oldValue = this.serverPort;
 		if (!Objects.equal(serverPort, oldValue)) {
 			this.serverPort = serverPort;
-			pcs.firePropertyChange("serverPort", oldValue, serverPort);
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("serverPort", oldValue, serverPort);
 		}
 	}
 
@@ -111,7 +115,8 @@ public class CustomProperties {
 		String oldValue = this.displayName;
 		if (!Objects.equal(displayName, oldValue)) {
 			this.displayName = displayName;
-			pcs.firePropertyChange("displayName", oldValue, displayName);
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("displayName", oldValue, displayName);
 		}
 	}
 
@@ -123,7 +128,8 @@ public class CustomProperties {
 		String oldValue = this.username;
 		if (!Objects.equal(username, oldValue)) {
 			this.username = username;
-			pcs.firePropertyChange("username", oldValue, username);
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("username", oldValue, username);
 		}
 	}
 
@@ -150,7 +156,8 @@ public class CustomProperties {
 			String newValue = encrypt(password);
 			if (!Objects.equal(newValue, oldValue)) {
 				this.passwordEncoded = newValue;
-				pcs.firePropertyChange("password", oldValue, newValue);
+				if (!suppressPropertyChangeEvent)
+					pcs.firePropertyChange("password", oldValue, newValue);
 			}
 
 		} catch (Exception e) {
@@ -180,7 +187,7 @@ public class CustomProperties {
 	}
 
 	private void load(Properties properties) {
-
+		this.suppressPropertyChangeEvent = true;
 		String clientUuidStr = properties.getProperty(KEY_CLIENT_UUID);
 		this.clientUuid = clientUuidStr != null ? UUID.fromString(clientUuidStr) : UUID.randomUUID();
 		this.setLanguage(properties.getProperty(KEY_LANGUAGE, DEFAULT_LANGUAGE));
@@ -189,9 +196,11 @@ public class CustomProperties {
 		this.setDisplayName(properties.getProperty(KEY_DISPLAY_NAME, ""));
 		this.setUsername(properties.getProperty(KEY_USERNAME, ""));
 		this.passwordEncoded = properties.getProperty(KEY_PASSWORD, "");
+		this.suppressPropertyChangeEvent = false;
 	}
 
 	private void clear() {
+		this.suppressPropertyChangeEvent = true;
 		this.clientUuid = UUID.randomUUID();
 		this.setLanguage(DEFAULT_LANGUAGE);
 		this.setServerHost(DEFAULT_SERVER_HOST);
@@ -199,6 +208,7 @@ public class CustomProperties {
 		this.setDisplayName("");
 		this.setUsername("");
 		this.passwordEncoded = "";
+		this.suppressPropertyChangeEvent = false;
 	}
 
 	public void save() throws IOException {
@@ -284,6 +294,10 @@ public class CustomProperties {
 		}
 
 		return new String(decrypted);
+	}
+
+	public void setSuppressPropertyChangeEvent(boolean suppressPropertyChangeEvent) {
+		this.suppressPropertyChangeEvent = suppressPropertyChangeEvent;
 	}
 
 	//	public static void main(String[] args) throws Exception {
