@@ -56,7 +56,7 @@ public class ConnectionService {
 			return false;
 		}
 
-		URI uri = UriComponentsBuilder.fromUri(baseUri).path("/user/hello").build().toUri();
+		URI uri = UriComponentsBuilder.fromUri(baseUri).path("/hello").build().toUri();
 		Boolean isOk = webClient.get().uri(uri)
 				.exchangeToMono(response -> Mono.just(response.statusCode().is2xxSuccessful()))
 				.onErrorReturn(false)
@@ -69,7 +69,7 @@ public class ConnectionService {
 			return false;
 		}
 
-		URI uri = UriComponentsBuilder.fromUri(baseUri).path("/user/signup").build().toUri();
+		URI uri = UriComponentsBuilder.fromUri(baseUri).path("/users/signup").build().toUri();
 		URI createdResourceLocation = webClient.post().uri(uri)
 				.contentType(MediaType.APPLICATION_JSON)
 				.bodyValue(signupData)

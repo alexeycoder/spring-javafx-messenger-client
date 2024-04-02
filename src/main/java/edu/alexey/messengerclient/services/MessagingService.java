@@ -5,23 +5,31 @@ import static org.springframework.web.reactive.function.client.ExchangeFilterFun
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClient.RequestHeadersSpec;
 
 import edu.alexey.messengerclient.dto.IncomingMessageDto;
+import edu.alexey.messengerclient.dto.OutgoingMessageDto;
 import edu.alexey.messengerclient.entities.Contact;
 import edu.alexey.messengerclient.entities.Conversation;
 import edu.alexey.messengerclient.entities.Message;
 import edu.alexey.messengerclient.repositories.ContactRepository;
 import edu.alexey.messengerclient.repositories.ConversationRepository;
 import edu.alexey.messengerclient.repositories.MessageRepository;
+import jakarta.annotation.PreDestroy;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
@@ -30,7 +38,9 @@ import reactor.core.publisher.Mono;
 @Service
 public class MessagingService {
 
+	static final long REFRESH_PERIOD_SEC = 2;
 	static final int LOAD_LIMIT = 99;
+	static final String HEADER_KEY_CLIENT_ID = "EduAlexeyMessenger-Client-Id";
 
 	private final ContactRepository contactRepository;
 	private final MessageRepository messageRepository;
@@ -41,6 +51,9 @@ public class MessagingService {
 	private UUID clientUuid;
 	private WebClient webClient;
 	private volatile UUID mostRecentMessageUuid;
+
+	private ScheduledExecutorService scheduledExecutor;
+	private volatile boolean isUpdating;
 
 	public MessagingService(
 			ContactRepository contactRepository,
@@ -53,7 +66,12 @@ public class MessagingService {
 		this.webClient = null;
 	}
 
-	public void setOnUpdatedCallback(BiConsumer<List<Conversation>, List<Message>> onUpdatedCallback) {
+	@PreDestroy
+	void close() {
+		stop();
+	}
+
+	public void setOnIncomingMessagesCallback(BiConsumer<List<Conversation>, List<Message>> onUpdatedCallback) {
 		this.onUpdatedCallback = onUpdatedCallback;
 	}
 
@@ -62,13 +80,13 @@ public class MessagingService {
 		stop();
 
 		this.clientUuid = clientUuid;
-		this.webClient = WebClient.builder()
+		webClient = WebClient.builder()
 				.baseUrl(baseUri.toString())
 				.filter(basicAuthentication(username, password))
+				.defaultHeader(HEADER_KEY_CLIENT_ID, clientUuid.toString())
 				.build();
 
 		synchronized (this) {
-
 			Message mostRecentMessage = messageRepository.getTopBy(Sort.by("sentAt", "messageId").descending());
 			if (mostRecentMessage != null) {
 				this.mostRecentMessageUuid = mostRecentMessage.getMessageUuid();
@@ -82,17 +100,28 @@ public class MessagingService {
 				//.onErrorResume(e -> Mono.empty())
 				.block();
 
-		checkUpdates();
+		// checkUpdates();
+		scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
+		scheduledExecutor.scheduleAtFixedRate(this::checkUpdates, 0, REFRESH_PERIOD_SEC, TimeUnit.SECONDS);
 	}
 
 	public void stop() {
-
-		this.webClient = null;
+		if (scheduledExecutor != null) {
+			scheduledExecutor.close();
+			scheduledExecutor = null;
+		}
+		webClient = null;
 	}
 
 	private void checkUpdates() {
 
+		if (isUpdating) {
+			return;
+		}
+		isUpdating = true;
+
 		if (webClient == null) {
+			isUpdating = false;
 			return;
 		}
 
@@ -103,10 +132,13 @@ public class MessagingService {
 				.block();
 
 		if (status == null || status == 0) {
+			isUpdating = false;
 			return;
 		}
 
 		getIncomingMessages();
+
+		isUpdating = false;
 	}
 
 	@Transactional
@@ -121,14 +153,17 @@ public class MessagingService {
 
 			if (mostRecentMessageUuid == null) {
 				requestSpec = webClient.get()
-						.uri("/messages/last/{limit}/client/{client_uuid}",
-								LOAD_LIMIT,
-								clientUuid);
+						.uri(uriBuilder -> uriBuilder
+								.path("/messages")
+								.queryParam("limit", LOAD_LIMIT)
+								.build());
+
 			} else {
 				requestSpec = webClient.get()
-						.uri("/messages/since/{since_message_uuid}/client/{client_uuid}",
-								mostRecentMessageUuid,
-								clientUuid);
+						.uri(uriBuilder -> uriBuilder
+								.path("/messages")
+								.queryParam("since_message", mostRecentMessageUuid.toString())
+								.build());
 			}
 
 			List<IncomingMessageDto> incomingMessages = requestSpec
@@ -154,13 +189,14 @@ public class MessagingService {
 						countersideUuid,
 						newConversations::add);
 				message.setConversation(conversation);
-
 				return message;
+
 			}).toList();
 
 			contactRepository.flush();
 			conversationRepository.flush();
 			messageRepository.saveAllAndFlush(newMessages);
+			mostRecentMessageUuid = newMessages.getLast().getMessageUuid();
 		}
 
 		if (onUpdatedCallback != null) {
@@ -180,7 +216,7 @@ public class MessagingService {
 		if (contact == null) {
 
 			String contactDisplayName = webClient.get()
-					.uri("/user/{user_uuid}", countersideUuid)
+					.uri("/users/{user_uuid}", countersideUuid)
 					.retrieve()
 					.bodyToMono(String.class)
 					.block();
@@ -207,6 +243,27 @@ public class MessagingService {
 		}
 
 		return conversation;
+	}
+
+	public boolean sendMessage(int conversationId, String content) {
+
+		Optional<Conversation> conversationOpt = conversationRepository.findById(conversationId);
+		if (conversationOpt.isEmpty()) {
+			throw new IllegalStateException("Nonexistent conversation");
+		}
+		UUID addresseeUuid = conversationOpt.get().getContact().getUserUuid();
+
+		ResponseEntity<Void> responseEntity = webClient.post().uri("/messages/new")
+				.accept(MediaType.APPLICATION_JSON)
+				.bodyValue(new OutgoingMessageDto(addresseeUuid, content))
+				.retrieve()
+				.toEntity(Void.class)
+				.block();
+
+		if (responseEntity.getStatusCode().is2xxSuccessful()) {
+			return true;
+		}
+		return false;
 	}
 
 	//	public static void main(String[] args) {

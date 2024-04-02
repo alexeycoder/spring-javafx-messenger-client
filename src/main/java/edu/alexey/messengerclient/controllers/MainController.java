@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import edu.alexey.messengerclient.bundles.Lang;
 import edu.alexey.messengerclient.bundles.Messages;
+import edu.alexey.messengerclient.dto.ContactDto;
 import edu.alexey.messengerclient.dto.SignupDto;
 import edu.alexey.messengerclient.entities.Conversation;
 import edu.alexey.messengerclient.entities.Message;
@@ -18,9 +19,10 @@ import edu.alexey.messengerclient.services.MessagingService;
 import edu.alexey.messengerclient.utils.CustomProperties;
 import edu.alexey.messengerclient.utils.DialogManager;
 import edu.alexey.messengerclient.view.ConversationListViewCell;
+import edu.alexey.messengerclient.view.FindContactView;
 import edu.alexey.messengerclient.view.MessageListViewCell;
 import edu.alexey.messengerclient.view.SignupView;
-import edu.alexey.messengerclient.viewmodel.SignupViewModel;
+import edu.alexey.messengerclient.viewmodel.BasicViewModel;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -77,6 +79,9 @@ public class MainController {
 
 	@Autowired
 	private SignupView signupView;
+
+	@Autowired
+	private FindContactView findContactView;
 
 	@Getter
 	@FXML
@@ -166,16 +171,40 @@ public class MainController {
 
 		loadCache();
 
-		messagingService.setOnUpdatedCallback((t, u) -> {});
+		messagingService.setOnIncomingMessagesCallback(this::handleIncomingMessages);
 
 		//
 		isInitializedProperty.set(true);
+	}
+
+	public BooleanProperty isInitializedProperty() {
+		return isInitializedProperty;
 	}
 
 	private void loadCache() {
 		List<Conversation> conversations = conversationService.findAll();
 		this.conversations.clear();
 		this.conversations.addAll(conversations);
+	}
+
+	private void handleIncomingMessages(List<Conversation> newConversations, List<Message> newMessages) {
+		Conversation currentConversation = listViewConversations.getSelectionModel().getSelectedItem();
+		if (currentConversation != null) {
+			List<Message> currentConversationMessages = newMessages.stream()
+					.filter(m -> m.getConversation().getConversationId()
+							.equals(currentConversation.getConversationId()))
+					.toList();
+			if (!currentConversationMessages.isEmpty()) {
+				Platform.runLater(() -> {
+					this.conversationMessages.addAll(currentConversationMessages);
+					this.listViewCurrentConversation.scrollTo(this.listViewCurrentConversation.getItems().size() - 1);
+				});
+			}
+		}
+
+		if (!newConversations.isEmpty()) {
+			Platform.runLater(() -> conversations.addAll(newConversations));
+		}
 	}
 
 	private void handleListViewConversationsSelectionChanged(
@@ -189,7 +218,6 @@ public class MainController {
 					.setText(Messages.getString("ui.main.communication.select_conversation")));
 			return;
 		}
-
 		//		String displayName = transactionTemplate.execute(status -> newValue.getContact().getDisplayName());
 		List<Message> messages = messageService.findAllByConversation(newValue);
 
@@ -199,11 +227,6 @@ public class MainController {
 			listViewCurrentConversation.autosize();
 			listViewCurrentConversation.scrollTo(messages.size() - 1);
 		});
-
-	}
-
-	public BooleanProperty isInitializedProperty() {
-		return isInitializedProperty;
 	}
 
 	//	@PostConstruct
@@ -268,7 +291,7 @@ public class MainController {
 			throw new NullPointerException();
 		}
 
-		SignupViewModel viewModel = new SignupViewModel(signupData);
+		var viewModel = new BasicViewModel<SignupDto, SignupDto>(signupData);
 
 		Stage stage = new Stage();
 		Parent parent = signupView.getRootNode();
@@ -316,6 +339,77 @@ public class MainController {
 		//printConversationsForTest();
 
 		tabPaneMain.getSelectionModel().selectNext();
+	}
+
+	@FXML
+	public void actionSend(ActionEvent event) {
+		String text = textAreaMessageToSend.getText();
+		if (text.isEmpty()) {
+			return;
+		}
+
+		Conversation currentConversation = listViewConversations.getSelectionModel().getSelectedItem();
+		if (currentConversation == null) {
+			return;
+		}
+
+		if (messagingService.sendMessage(currentConversation.getConversationId(), text)) {
+			textAreaMessageToSend.clear();
+		} else {
+			DialogManager.showErrorDialog(
+					Messages.getString("ui.error"),
+					Messages.getString("ui.error.send_failure"));
+		}
+	}
+
+	@FXML
+	public void actionClear(ActionEvent event) {
+		textAreaMessageToSend.clear();
+	}
+
+	@FXML
+	public void actionFindContact(ActionEvent event) {
+
+		var result = showFindContactDialog(((Node) event.getSource()).getScene().getWindow());
+		result.ifPresent(signupData -> {
+
+		});
+	}
+
+	private Optional<ContactDto> showFindContactDialog(Window owner) {
+
+		var viewModel = new BasicViewModel<Void, ContactDto>(null);
+
+		Stage stage = new Stage();
+		Parent parent = findContactView.getRootNode();
+		findContactView.setViewModel(viewModel);
+
+		final double width = 500;
+		final double height = 500;
+
+		Scene scene = new Scene(parent, width, height);
+
+		stage.setScene(scene);
+		stage.sizeToScene();
+		stage.setMinWidth(400);
+		stage.setMinHeight(400);
+		stage.setTitle(Messages.getString("ui.dialog.find_contact")); //$NON-NLS-1$
+		stage.initModality(Modality.WINDOW_MODAL);
+		if (owner != null) {
+			stage.initOwner(owner);
+		}
+		stage.setOnShown(event -> {
+			Platform.runLater(() -> {
+				stage.setWidth(width);
+				stage.setHeight(height);
+			});
+		});
+		stage.showAndWait();
+
+		stage.setScene(null);
+		scene.setRoot(new Group()); // удаляем имеющийся корневой узел из графа
+
+		return Optional.ofNullable(viewModel.getResult());
 	}
 
 	//	private void printConversationsForTest() {

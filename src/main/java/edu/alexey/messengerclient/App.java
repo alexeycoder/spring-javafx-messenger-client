@@ -22,7 +22,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @SpringBootApplication
 public class App extends JavaFxAsSpringBeanApplication {
 
@@ -66,7 +68,7 @@ public class App extends JavaFxAsSpringBeanApplication {
 		primaryStage = stage;
 
 		root = (VBox) mainView.getRootNode();
-		Scene scene = new Scene(root, 720, 560);
+		Scene scene = new Scene(root, 900, 600);
 
 		stage.setTitle(Messages.getString("app_name")); //$NON-NLS-1$
 		stage.setMinWidth(600);
@@ -83,8 +85,8 @@ public class App extends JavaFxAsSpringBeanApplication {
 					return;
 				}
 				Platform.runLater(() -> {
-					stage.setWidth(720);
-					stage.setHeight(560);
+					stage.setWidth(900);
+					stage.setHeight(600);
 					stage.centerOnScreen();
 				});
 			}).start();
@@ -110,6 +112,7 @@ public class App extends JavaFxAsSpringBeanApplication {
 		try {
 			customProperties.save();
 		} catch (Exception e) {
+			log.error("Error on custom properties save.", e);
 			DialogManager.showErrorDialog(
 					Messages.getString("ui.error"),
 					Messages.getString("ui.error.unable_save_config"));

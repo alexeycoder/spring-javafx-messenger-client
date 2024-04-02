@@ -45,7 +45,8 @@
 				<Insets bottom="10.0" top="10.0" />
 			</GridPane.margin>
 			<children>
-				<Button defaultButton="true" mnemonicParsing="false"
+				<Button fx:id="buttonSignup" defaultButton="true"
+					mnemonicParsing="false"
 					onAction="#actionSignup" text="%ui.main.settings.register" />
 				<Button cancelButton="true" mnemonicParsing="false"
 					onAction="#actionClose" text="%ui.cancel" />

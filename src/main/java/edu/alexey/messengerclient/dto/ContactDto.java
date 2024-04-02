@@ -1,11 +1,13 @@
 package edu.alexey.messengerclient.dto;
 
+import java.util.UUID;
+
 import lombok.Data;
 
 @Data
-public class SignupDto {
+public class ContactDto {
+
+	private UUID userUuid;
 
 	private String displayName;
-	private String username;
-	private String password;
 }

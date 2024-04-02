@@ -30,8 +30,8 @@ import com.google.common.base.Objects;
 import edu.alexey.messengerclient.bundles.LocaleManager;
 import lombok.extern.slf4j.Slf4j;
 
-@Component
 @Slf4j
+@Component
 public class CustomProperties {
 
 	static final String FILENAME = "custom.properties";
@@ -62,7 +62,7 @@ public class CustomProperties {
 	private String serverPort;
 	private String displayName;
 	private String username;
-	private String passwordEncoded;
+	private String password;
 
 	public UUID getClientUuid() {
 		return clientUuid;
@@ -72,12 +72,13 @@ public class CustomProperties {
 		return language;
 	}
 
-	public void setLanguage(String language) {
+	public void setLanguage(String value) {
+		value = StringUtils.nullifyEmpty(value);
 		String oldValue = this.language;
-		if (!Objects.equal(language, oldValue)) {
-			this.language = language;
+		if (!Objects.equal(value, oldValue)) {
+			this.language = value;
 			if (!suppressPropertyChangeEvent)
-				pcs.firePropertyChange("language", oldValue, language);
+				pcs.firePropertyChange("language", oldValue, value);
 		}
 	}
 
@@ -85,12 +86,13 @@ public class CustomProperties {
 		return serverHost;
 	}
 
-	public void setServerHost(String serverHost) {
+	public void setServerHost(String value) {
+		value = StringUtils.nullifyEmpty(value);
 		String oldValue = this.serverHost;
-		if (!Objects.equal(serverHost, oldValue)) {
-			this.serverHost = serverHost;
+		if (!Objects.equal(value, oldValue)) {
+			this.serverHost = value;
 			if (!suppressPropertyChangeEvent)
-				pcs.firePropertyChange("serverHost", oldValue, serverHost);
+				pcs.firePropertyChange("serverHost", oldValue, value);
 		}
 	}
 
@@ -98,12 +100,13 @@ public class CustomProperties {
 		return serverPort;
 	}
 
-	public void setServerPort(String serverPort) {
+	public void setServerPort(String value) {
+		value = StringUtils.nullifyEmpty(value);
 		String oldValue = this.serverPort;
-		if (!Objects.equal(serverPort, oldValue)) {
-			this.serverPort = serverPort;
+		if (!Objects.equal(value, oldValue)) {
+			this.serverPort = value;
 			if (!suppressPropertyChangeEvent)
-				pcs.firePropertyChange("serverPort", oldValue, serverPort);
+				pcs.firePropertyChange("serverPort", oldValue, value);
 		}
 	}
 
@@ -111,12 +114,13 @@ public class CustomProperties {
 		return displayName;
 	}
 
-	public void setDisplayName(String displayName) {
+	public void setDisplayName(String value) {
+		value = StringUtils.nullifyEmpty(value);
 		String oldValue = this.displayName;
-		if (!Objects.equal(displayName, oldValue)) {
-			this.displayName = displayName;
+		if (!Objects.equal(value, oldValue)) {
+			this.displayName = value;
 			if (!suppressPropertyChangeEvent)
-				pcs.firePropertyChange("displayName", oldValue, displayName);
+				pcs.firePropertyChange("displayName", oldValue, value);
 		}
 	}
 
@@ -124,45 +128,27 @@ public class CustomProperties {
 		return username;
 	}
 
-	public void setUsername(String username) {
+	public void setUsername(String value) {
+		value = StringUtils.nullifyEmpty(value);
 		String oldValue = this.username;
-		if (!Objects.equal(username, oldValue)) {
-			this.username = username;
+		if (!Objects.equal(value, oldValue)) {
+			this.username = value;
 			if (!suppressPropertyChangeEvent)
-				pcs.firePropertyChange("username", oldValue, username);
+				pcs.firePropertyChange("username", oldValue, value);
 		}
 	}
 
 	public String getPassword() {
-		if (passwordEncoded == null) {
-			return null;
-		}
-		try {
-			return decrypt(passwordEncoded);
-		} catch (Exception e) {
-			log.error("Cannot decode password.", e);
-			throw new RuntimeException(e);
-		}
+		return password;
 	}
 
-	public void setPassword(String password) {
-		String oldValue = this.passwordEncoded;
-
-		if (password == null || password.isBlank()) {
-			throw new IllegalArgumentException();
-		}
-		try {
-
-			String newValue = encrypt(password);
-			if (!Objects.equal(newValue, oldValue)) {
-				this.passwordEncoded = newValue;
-				if (!suppressPropertyChangeEvent)
-					pcs.firePropertyChange("password", oldValue, newValue);
-			}
-
-		} catch (Exception e) {
-			log.error("Cannot encode password.", e);
-			throw new RuntimeException(e);
+	public void setPassword(String value) {
+		value = StringUtils.nullifyEmpty(value);
+		String oldValue = this.password;
+		if (!Objects.equal(value, oldValue)) {
+			this.password = value;
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("password", oldValue, value);
 		}
 	}
 
@@ -187,39 +173,54 @@ public class CustomProperties {
 	}
 
 	private void load(Properties properties) {
-		this.suppressPropertyChangeEvent = true;
 		String clientUuidStr = properties.getProperty(KEY_CLIENT_UUID);
 		this.clientUuid = clientUuidStr != null ? UUID.fromString(clientUuidStr) : UUID.randomUUID();
-		this.setLanguage(properties.getProperty(KEY_LANGUAGE, DEFAULT_LANGUAGE));
-		this.setServerHost(properties.getProperty(KEY_SERVER_HOST, DEFAULT_SERVER_HOST));
-		this.setServerPort(properties.getProperty(KEY_SERVER_PORT, DEFAULT_SERVER_PORT));
-		this.setDisplayName(properties.getProperty(KEY_DISPLAY_NAME, ""));
-		this.setUsername(properties.getProperty(KEY_USERNAME, ""));
-		this.passwordEncoded = properties.getProperty(KEY_PASSWORD, "");
-		this.suppressPropertyChangeEvent = false;
+		this.language = properties.getProperty(KEY_LANGUAGE, DEFAULT_LANGUAGE);
+		this.serverHost = properties.getProperty(KEY_SERVER_HOST, DEFAULT_SERVER_HOST);
+		this.serverPort = properties.getProperty(KEY_SERVER_PORT, DEFAULT_SERVER_PORT);
+		this.displayName = properties.getProperty(KEY_DISPLAY_NAME, null);
+		this.username = properties.getProperty(KEY_USERNAME, null);
+		String passwordEncoded = properties.getProperty(KEY_PASSWORD, null);
+		this.password = null;
+		if (!StringUtils.isNullOrBlank(passwordEncoded)) {
+			try {
+				this.password = decrypt(passwordEncoded);
+			} catch (Exception e) {
+				log.error("Cannot decode password.", e);
+				throw new RuntimeException(e);
+			}
+		}
 	}
 
 	private void clear() {
-		this.suppressPropertyChangeEvent = true;
 		this.clientUuid = UUID.randomUUID();
-		this.setLanguage(DEFAULT_LANGUAGE);
-		this.setServerHost(DEFAULT_SERVER_HOST);
-		this.setServerPort(DEFAULT_SERVER_PORT);
-		this.setDisplayName("");
-		this.setUsername("");
-		this.passwordEncoded = "";
-		this.suppressPropertyChangeEvent = false;
+		this.language = DEFAULT_LANGUAGE;
+		this.serverHost = DEFAULT_SERVER_HOST;
+		this.serverPort = DEFAULT_SERVER_PORT;
+		this.displayName = null;
+		this.username = null;
+		this.password = null;
 	}
 
 	public void save() throws IOException {
 		Properties properties = new Properties();
-		properties.setProperty(KEY_CLIENT_UUID, getClientUuid().toString());
-		properties.setProperty(KEY_LANGUAGE, getLanguage());
-		properties.setProperty(KEY_SERVER_HOST, getServerHost());
-		properties.setProperty(KEY_SERVER_PORT, getServerPort());
-		properties.setProperty(KEY_DISPLAY_NAME, getDisplayName());
-		properties.setProperty(KEY_USERNAME, getUsername());
-		properties.setProperty(KEY_PASSWORD, passwordEncoded);
+
+		setPropertyNullFriendly(properties, KEY_CLIENT_UUID, this.clientUuid);
+		setPropertyNullFriendly(properties, KEY_LANGUAGE, this.language);
+		setPropertyNullFriendly(properties, KEY_SERVER_HOST, this.serverHost);
+		setPropertyNullFriendly(properties, KEY_SERVER_PORT, this.serverPort);
+		setPropertyNullFriendly(properties, KEY_DISPLAY_NAME, this.displayName);
+		setPropertyNullFriendly(properties, KEY_USERNAME, this.username);
+		String passwordEncoded = null;
+		if (!StringUtils.isNullOrBlank(this.password)) {
+			try {
+				passwordEncoded = encrypt(this.password);
+			} catch (Exception e) {
+				log.error("Cannot encode password.", e);
+				throw new RuntimeException(e);
+			}
+		}
+		setPropertyNullFriendly(properties, KEY_PASSWORD, passwordEncoded);
 
 		File file = Path.of(FILENAME).toFile();
 		try (FileOutputStream outputStream = new FileOutputStream(file)) {
@@ -298,6 +299,12 @@ public class CustomProperties {
 
 	public void setSuppressPropertyChangeEvent(boolean suppressPropertyChangeEvent) {
 		this.suppressPropertyChangeEvent = suppressPropertyChangeEvent;
+	}
+
+	private static void setPropertyNullFriendly(Properties properties, String key, Object value) {
+		if (value != null) {
+			properties.setProperty(key, value.toString());
+		}
 	}
 
 	//	public static void main(String[] args) throws Exception {

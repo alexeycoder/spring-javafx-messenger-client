@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import edu.alexey.messengerclient.bundles.Lang;
 import edu.alexey.messengerclient.bundles.LocaleManager;
 import edu.alexey.messengerclient.utils.CustomProperties;
+import edu.alexey.messengerclient.utils.StringUtils;
 import jakarta.annotation.PostConstruct;
 import javafx.application.Platform;
 import javafx.scene.control.Button;
@@ -31,12 +32,12 @@ public class CustomPropertiesBinder {
 
 		if (mainController.isInitializedProperty().get()) {
 			doInit(true, true);
-			//subscribeCustomPropertiesChanged();
+			subscribeCustomPropertiesChanged();
 		} else {
 			mainController.isInitializedProperty().addListener((observable, oldValue, newValue) -> {
 				if (newValue) {
 					doInit(true, true);
-					//subscribeCustomPropertiesChanged();
+					subscribeCustomPropertiesChanged();
 				}
 			});
 		}
@@ -50,9 +51,6 @@ public class CustomPropertiesBinder {
 		TextField textFieldServerHost = mainController.getTextFieldServerHost();
 		TextField textFieldServerPort = mainController.getTextFieldServerPort();
 		// Credentials
-		//		Label labelDisplayName = mainController.getLabelDisplayName();
-		//		Label labelUsername = mainController.getLabelUsername();
-		//		Label labelPassword = mainController.getLabelPassword();
 		TextField textFieldDisplayName = mainController.getTextFieldDisplayName();
 		TextField textFieldUsername = mainController.getTextFieldUsername();
 		PasswordField passwordField = mainController.getPasswordField();
@@ -72,18 +70,13 @@ public class CustomPropertiesBinder {
 			textFieldServerPort.setText(customProperties.getServerPort());
 
 			// Credentials
-			textFieldDisplayName.setText(customProperties.getDisplayName().isBlank()
-					? NO_DATA_PLACEHOLDER
-					: customProperties.getDisplayName());
-			textFieldUsername.setText(customProperties.getUsername().isBlank()
-					? NO_DATA_PLACEHOLDER
-					: customProperties.getUsername());
-			passwordField.setText(customProperties.getPassword().isBlank()
-					? NO_DATA_PLACEHOLDER
-					: customProperties.getPassword());
+
+			textFieldDisplayName.setText(customProperties.getDisplayName());
+			textFieldUsername.setText(customProperties.getUsername());
+			passwordField.setText(customProperties.getPassword());
 			buttonConnect.setDisable(
-					customProperties.getUsername().isBlank()
-							|| customProperties.getPassword().isBlank());
+					customProperties.getUsername() == null
+							|| customProperties.getPassword() == null);
 
 			suppressUiChangeHandlers = false;
 			customProperties.setSuppressPropertyChangeEvent(false);
@@ -92,7 +85,7 @@ public class CustomPropertiesBinder {
 		if (subscribeUiChanges) {
 			// Language
 			comboBoxLanguage.setOnAction(event -> {
-				if (!CustomPropertiesBinder.this.suppressUiChangeHandlers) {
+				if (!suppressUiChangeHandlers) {
 					Lang selectedLang = comboBoxLanguage.getSelectionModel().getSelectedItem();
 					LocaleManager.setCurrent(selectedLang);
 					customProperties.setLanguage(selectedLang.getCode());
@@ -101,26 +94,26 @@ public class CustomPropertiesBinder {
 
 			// Server
 			textFieldServerHost.textProperty().addListener((observable, oldValue, newValue) -> {
-				if (!CustomPropertiesBinder.this.suppressUiChangeHandlers)
+				if (!suppressUiChangeHandlers)
 					customProperties.setServerHost(newValue);
 			});
 			textFieldServerPort.textProperty().addListener((observable, oldValue, newValue) -> {
-				if (!CustomPropertiesBinder.this.suppressUiChangeHandlers)
+				if (!suppressUiChangeHandlers)
 					customProperties.setServerPort(newValue);
 			});
 
 			// Credentials
 			textFieldDisplayName.textProperty().addListener((observable, oldValue, newValue) -> {
-				if (!CustomPropertiesBinder.this.suppressUiChangeHandlers)
+				if (!suppressUiChangeHandlers)
 					customProperties.setDisplayName(newValue);
 			});
 
 			textFieldUsername.textProperty().addListener((observable, oldValue, newValue) -> {
-				if (!CustomPropertiesBinder.this.suppressUiChangeHandlers)
+				if (!suppressUiChangeHandlers)
 					customProperties.setUsername(newValue);
 			});
 			passwordField.textProperty().addListener((observable, oldValue, newValue) -> {
-				if (!CustomPropertiesBinder.this.suppressUiChangeHandlers)
+				if (!suppressUiChangeHandlers)
 					customProperties.setPassword(newValue);
 			});
 		}
@@ -128,7 +121,6 @@ public class CustomPropertiesBinder {
 
 	private void populateComboBoxLanguage(ComboBox<Lang> comboBoxLanguage) {
 		if (comboBoxLanguage.getItems().isEmpty()) {
-			//			comboBoxLanguage.setItems(FXCollections.<Lang>observableList(LocaleManager.LANGUAGES));
 			comboBoxLanguage.getItems().addAll(LocaleManager.LANGUAGES);
 			comboBoxLanguage.getSelectionModel().select(LocaleManager.getCurrent());
 		}
@@ -137,18 +129,48 @@ public class CustomPropertiesBinder {
 	private void subscribeCustomPropertiesChanged() {
 
 		this.customProperties.addPropertyChangeListener(evt -> {
-			if (evt.getPropertyName().equalsIgnoreCase("username")
-					|| evt.getPropertyName().equals("displayName")
-					|| evt.getPropertyName().equals("password")) {
-				Platform.runLater(() -> {
-					customProperties.setSuppressPropertyChangeEvent(true);
-					suppressUiChangeHandlers = true;
-					doInit(true, false);
-					customProperties.setSuppressPropertyChangeEvent(false);
-					suppressUiChangeHandlers = false;
-				});
-			}
+
+			handleCredentialsPropertiesChanged(
+					evt.getPropertyName(),
+					evt.getNewValue() == null ? null : evt.getNewValue().toString());
+
 		});
+	}
+
+	private void handleCredentialsPropertiesChanged(String propertyName, String newValue) {
+		TextField textField = switch (propertyName) {
+		case "username" -> mainController.getTextFieldUsername();
+		case "displayName" -> mainController.getTextFieldDisplayName();
+		case "password" -> mainController.getPasswordField();
+		default -> null;
+		};
+
+		if (textField == null) {
+			return;
+		}
+
+		Runnable action = () -> {
+			customProperties.setSuppressPropertyChangeEvent(true);
+			suppressUiChangeHandlers = true;
+			int pos = textField.getCaretPosition();
+			textField.setText(newValue);
+			textField.positionCaret(pos);
+			customProperties.setSuppressPropertyChangeEvent(false);
+			suppressUiChangeHandlers = false;
+
+			mainController.getButtonConnect().setDisable(
+					StringUtils.isNullOrBlank(customProperties.getUsername())
+							|| StringUtils.isNullOrBlank(customProperties.getPassword()));
+		};
+
+		if (Platform.isFxApplicationThread()) {
+			// Если делать в "отложенной" манере, то при быстром наборе текста в поле
+			// корректировка позиции курсора может иногда не успевать за вводом.
+			action.run();
+		} else {
+			Platform.runLater(action);
+		}
+
 	}
 
 }

@@ -9,12 +9,15 @@ import edu.alexey.messengerclient.bundles.Messages;
 import edu.alexey.messengerclient.dto.SignupDto;
 import edu.alexey.messengerclient.services.ConnectionService;
 import edu.alexey.messengerclient.utils.DialogManager;
+import edu.alexey.messengerclient.utils.StringUtils;
 import edu.alexey.messengerclient.viewmodel.SignupViewModelConsumer;
 import edu.alexey.messengerclient.viewmodel.abstractions.ViewModel;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.WindowEvent;
@@ -26,6 +29,8 @@ public class SignupController implements SignupViewModelConsumer {
 	private ConnectionService connectionService;
 
 	@FXML
+	private Button buttonSignup;
+	@FXML
 	private TextField textFieldDisplayName;
 	@FXML
 	private TextField textFieldUsername;
@@ -33,6 +38,19 @@ public class SignupController implements SignupViewModelConsumer {
 	private PasswordField passwordField;
 
 	private ViewModel<SignupDto, SignupDto> signupViewModel;
+
+	@FXML
+	private void initialize() {
+
+		ChangeListener<String> listener = (observable, oldValue, newValue) -> {
+			System.out.println("LISTENER called");
+			buttonSignup.setDisable(!checkValidity());
+		};
+
+		textFieldDisplayName.textProperty().addListener(listener);
+		textFieldUsername.textProperty().addListener(listener);
+		passwordField.textProperty().addListener(listener);
+	}
 
 	@Override
 	public void accept(ViewModel<SignupDto, SignupDto> viewModel) {
@@ -51,6 +69,7 @@ public class SignupController implements SignupViewModelConsumer {
 		textFieldDisplayName.setText(signupData.getDisplayName());
 		textFieldUsername.setText(signupData.getUsername());
 		passwordField.setText(signupData.getPassword());
+		buttonSignup.setDisable(!checkValidity());
 	}
 
 	private void clearElements() {
@@ -103,9 +122,9 @@ public class SignupController implements SignupViewModelConsumer {
 	}
 
 	private boolean checkValidity() {
-		return !(textFieldDisplayName.getText().isBlank()
-				|| textFieldUsername.getText().isBlank()
-				|| passwordField.getText().isBlank());
+		return !(StringUtils.isNullOrBlank(textFieldDisplayName.getText())
+				|| StringUtils.isNullOrBlank(textFieldUsername.getText())
+				|| StringUtils.isNullOrBlank(passwordField.getText()));
 	}
 
 }
