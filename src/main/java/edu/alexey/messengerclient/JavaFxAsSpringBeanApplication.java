@@ -39,7 +39,6 @@ public abstract class JavaFxAsSpringBeanApplication extends Application {
 
 	@Override
 	public void stop() throws Exception {
-		System.out.println("STOP THREAD: " + Thread.currentThread().getName());
 		applicationContext.close();
 	}
 }

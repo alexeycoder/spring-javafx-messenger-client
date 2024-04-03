@@ -1,5 +1,7 @@
 package edu.alexey.messengerclient.utils;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -8,8 +10,11 @@ import java.nio.file.Path;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.Base64;
+import java.util.Optional;
 import java.util.Properties;
+import java.util.UUID;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -21,56 +26,149 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.stereotype.Component;
 
+import com.google.common.base.Objects;
+
+import edu.alexey.messengerclient.bundles.LocaleManager;
 import lombok.extern.slf4j.Slf4j;
 
-@Component
 @Slf4j
+@Component
 public class CustomProperties {
 
 	static final String FILENAME = "custom.properties";
-	static final String KEY_LOGIN = "login";
+	static final String KEY_CLIENT_UUID = "client_uuid";
+	static final String KEY_SERVER_HOST = "host";
+	static final String KEY_SERVER_PORT = "port";
+	static final String KEY_USER_UUID = "user_uuid";
+	static final String KEY_USERNAME = "username";
 	static final String KEY_PASSWORD = "password";
+	static final String KEY_DISPLAY_NAME = "display_name";
+	static final String KEY_LANGUAGE = "language";
 
-	private String login;
+	static final String DEFAULT_SERVER_HOST = "localhost";
+	static final String DEFAULT_SERVER_PORT = "8080";
+	static final String DEFAULT_LANGUAGE = LocaleManager.LANGUAGES.getFirst().getCode();
 
-	private String passwordEncoded;
+	private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+	private volatile boolean suppressPropertyChangeEvent;
 
 	public CustomProperties() {
+		try {
+			load();
+		} catch (IOException e) {}
 	}
 
-	public String getLogin() {
-		return login;
+	private UUID clientUuid;
+	private String language;
+	private String serverHost;
+	private String serverPort;
+	private UUID userUuid;
+	private String displayName;
+	private String username;
+	private String password;
+
+	public UUID getClientUuid() {
+		return clientUuid;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String value) {
+		value = StringUtils.nullifyEmpty(value);
+		String oldValue = this.language;
+		if (!Objects.equal(value, oldValue)) {
+			this.language = value;
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("language", oldValue, value);
+		}
+	}
+
+	public String getServerHost() {
+		return serverHost;
+	}
+
+	public void setServerHost(String value) {
+		value = StringUtils.nullifyEmpty(value);
+		String oldValue = this.serverHost;
+		if (!Objects.equal(value, oldValue)) {
+			this.serverHost = value;
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("serverHost", oldValue, value);
+		}
+	}
+
+	public String getServerPort() {
+		return serverPort;
+	}
+
+	public void setServerPort(String value) {
+		value = StringUtils.nullifyEmpty(value);
+		String oldValue = this.serverPort;
+		if (!Objects.equal(value, oldValue)) {
+			this.serverPort = value;
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("serverPort", oldValue, value);
+		}
+	}
+
+	public UUID getUserUuid() {
+		return userUuid;
+	}
+
+	public void setUserUuid(UUID value) {
+		UUID oldValue = this.userUuid;
+		if (!Objects.equal(value, oldValue)) {
+			this.userUuid = value;
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("userUuid", oldValue, value);
+		}
+	}
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String value) {
+		value = StringUtils.nullifyEmpty(value);
+		String oldValue = this.displayName;
+		if (!Objects.equal(value, oldValue)) {
+			this.displayName = value;
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("displayName", oldValue, value);
+		}
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String value) {
+		value = StringUtils.nullifyEmpty(value);
+		String oldValue = this.username;
+		if (!Objects.equal(value, oldValue)) {
+			this.username = value;
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("username", oldValue, value);
+		}
 	}
 
 	public String getPassword() {
-		if (passwordEncoded == null) {
-			return null;
-		}
-		try {
-			return decode(passwordEncoded);
-		} catch (Exception e) {
-			log.error("Cannot decode password.", e);
-			throw new RuntimeException(e);
+		return password;
+	}
+
+	public void setPassword(String value) {
+		value = StringUtils.nullifyEmpty(value);
+		String oldValue = this.password;
+		if (!Objects.equal(value, oldValue)) {
+			this.password = value;
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("password", oldValue, value);
 		}
 	}
 
-	public void setPassword(String password) {
-		if (password == null || password.isBlank()) {
-			throw new IllegalArgumentException();
-		}
-		try {
-			this.passwordEncoded = encode(password);
-		} catch (Exception e) {
-			log.error("Cannot encode password.", e);
-			throw new RuntimeException(e);
-		}
-	}
-
-	public void load() throws IOException {
+	private void load() throws IOException {
 		clear();
 
 		File file = Path.of(FILENAME).toFile();
@@ -80,28 +178,70 @@ public class CustomProperties {
 
 		Properties properties = new Properties();
 		try (FileInputStream inputStream = new FileInputStream(file)) {
+
 			properties.load(inputStream);
+			load(properties);
+
 		} catch (IOException e) {
 			log.error("Unable to read custom properties.", e);
-			throw e;
+			clear();
 		}
-		load(properties);
 	}
 
 	private void load(Properties properties) {
-		this.login = properties.getProperty(KEY_LOGIN);
-		this.passwordEncoded = properties.getProperty(KEY_PASSWORD);
+		String clientUuidStr = properties.getProperty(KEY_CLIENT_UUID);
+		this.clientUuid = clientUuidStr != null ? UUID.fromString(clientUuidStr) : UUID.randomUUID();
+		this.language = properties.getProperty(KEY_LANGUAGE, DEFAULT_LANGUAGE);
+		this.serverHost = properties.getProperty(KEY_SERVER_HOST, DEFAULT_SERVER_HOST);
+		this.serverPort = properties.getProperty(KEY_SERVER_PORT, DEFAULT_SERVER_PORT);
+		this.userUuid = Optional.ofNullable(properties.getProperty(KEY_USER_UUID, null))
+				.map(UUID::fromString)
+				.orElse(null);
+		this.displayName = properties.getProperty(KEY_DISPLAY_NAME, null);
+		this.username = properties.getProperty(KEY_USERNAME, null);
+		String passwordEncoded = properties.getProperty(KEY_PASSWORD, null);
+		this.password = null;
+		if (!StringUtils.isNullOrBlank(passwordEncoded)) {
+			try {
+				this.password = decrypt(passwordEncoded);
+			} catch (Exception e) {
+				log.error("Cannot decode password.", e);
+				throw new RuntimeException(e);
+			}
+		}
 	}
 
 	private void clear() {
-		login = null;
-		passwordEncoded = null;
+		this.clientUuid = UUID.randomUUID();
+		this.language = DEFAULT_LANGUAGE;
+		this.serverHost = DEFAULT_SERVER_HOST;
+		this.serverPort = DEFAULT_SERVER_PORT;
+		this.userUuid = null;
+		this.displayName = null;
+		this.username = null;
+		this.password = null;
 	}
 
 	public void save() throws IOException {
 		Properties properties = new Properties();
-		properties.setProperty(KEY_LOGIN, login);
-		properties.setProperty(KEY_PASSWORD, passwordEncoded);
+
+		setPropertyNullFriendly(properties, KEY_CLIENT_UUID, this.clientUuid);
+		setPropertyNullFriendly(properties, KEY_LANGUAGE, this.language);
+		setPropertyNullFriendly(properties, KEY_SERVER_HOST, this.serverHost);
+		setPropertyNullFriendly(properties, KEY_SERVER_PORT, this.serverPort);
+		setPropertyNullFriendly(properties, KEY_USER_UUID, this.userUuid);
+		setPropertyNullFriendly(properties, KEY_DISPLAY_NAME, this.displayName);
+		setPropertyNullFriendly(properties, KEY_USERNAME, this.username);
+		String passwordEncoded = null;
+		if (!StringUtils.isNullOrBlank(this.password)) {
+			try {
+				passwordEncoded = encrypt(this.password);
+			} catch (Exception e) {
+				log.error("Cannot encode password.", e);
+				throw new RuntimeException(e);
+			}
+		}
+		setPropertyNullFriendly(properties, KEY_PASSWORD, passwordEncoded);
 
 		File file = Path.of(FILENAME).toFile();
 		try (FileOutputStream outputStream = new FileOutputStream(file)) {
@@ -112,12 +252,20 @@ public class CustomProperties {
 		}
 	}
 
+	public void addPropertyChangeListener(PropertyChangeListener pcl) {
+		pcs.addPropertyChangeListener(pcl);
+	}
+
+	public void removePropertyChangeListener(PropertyChangeListener pcl) {
+		pcs.removePropertyChangeListener(pcl);
+	}
+
 	private static final byte KEY[] = new byte[] { -14, 117, -23, 86, -121, 7, -19, 22, -35, 114, 34, 76, 60, 46, -15,
 			102 };
 	private static final byte IV[] = new byte[] { 24, 69, -32, -51, 47, 2, -69, -119, 54, -46, 23, -31, -111, -106, 41,
 			58 };
 
-	private String encode(String inputStr)
+	private String encrypt(String inputStr)
 			throws NoSuchAlgorithmException,
 			NoSuchPaddingException,
 			InvalidKeyException,
@@ -127,6 +275,7 @@ public class CustomProperties {
 			BadPaddingException {
 
 		byte[] input = inputStr.getBytes();
+
 		SecretKeySpec key = new SecretKeySpec(KEY, "AES");
 		IvParameterSpec ivSpec = new IvParameterSpec(IV);
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -135,11 +284,15 @@ public class CustomProperties {
 		int encLen = cipher.update(input, 0, input.length, encrypted, 0);
 		encLen += cipher.doFinal(encrypted, encLen);
 
+		if (encrypted.length != encLen) {
+			encrypted = Arrays.copyOf(encrypted, encLen);
+		}
+
 		byte[] base64encoded = Base64.getEncoder().encode(encrypted);
 		return new String(base64encoded);
 	}
 
-	private String decode(String inputStr)
+	private String decrypt(String inputStr)
 			throws NoSuchAlgorithmException,
 			NoSuchPaddingException,
 			InvalidKeyException,
@@ -147,7 +300,9 @@ public class CustomProperties {
 			ShortBufferException,
 			IllegalBlockSizeException,
 			BadPaddingException {
+
 		byte[] input = Base64.getDecoder().decode(inputStr);
+
 		SecretKeySpec key = new SecretKeySpec(KEY, "AES");
 		IvParameterSpec ivSpec = new IvParameterSpec(IV);
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -156,48 +311,28 @@ public class CustomProperties {
 		int decLen = cipher.update(input, 0, input.length, decrypted, 0);
 		decLen += cipher.doFinal(decrypted, decLen);
 
+		if (decrypted.length != decLen) {
+			decrypted = Arrays.copyOf(decrypted, decLen);
+		}
+
 		return new String(decrypted);
 	}
 
-	//	public static void main(String[] args)
-	//			throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException,
-	//			InvalidAlgorithmParameterException, ShortBufferException, IllegalBlockSizeException, BadPaddingException {
-	//
-	//		var tmp = Stream.<Integer>generate(() -> ThreadLocalRandom.current().nextInt(-128, 128)).limit(16).toArray();
-	//		System.out.println(Arrays.toString(tmp));
-	//
-	//		CustomProperties customProperties = new CustomProperties();
-	//
-	//		customProperties.load();
-	//		System.out.println(customProperties.getLogin());
-	//		System.out.println(customProperties.getPassword());
-	//
-	//		customProperties.setLogin("buzz");
-	//		customProperties.setPassword("parole");
-	//		customProperties.save();
-	//
-	//		CustomProperties customProperties2 = new CustomProperties();
-	//
-	//		customProperties2.load();
-	//		System.out.println(customProperties2.getLogin());
-	//		System.out.println(customProperties2.getPassword());
-	//
-	//		customProperties.setLogin("another@user");
-	//		customProperties.setPassword("strongpass");
-	//		customProperties.save();
-	//
-	//		customProperties2.load();
-	//		System.out.println(customProperties2.getLogin());
-	//		System.out.println(customProperties2.getPassword());
-	//
-	//		System.out.println();
-	//		Provider[] providers = Security.getProviders();
-	//		System.out.println(Arrays.toString(providers));
-	//
-	//		String encodedPass = customProperties.encode("My@Str^ong%Pass");
-	//		System.out.println(encodedPass);
-	//
-	//		System.out.println(customProperties.decode(encodedPass));
-	//	}
+	public void setSuppressPropertyChangeEvent(boolean suppressPropertyChangeEvent) {
+		this.suppressPropertyChangeEvent = suppressPropertyChangeEvent;
+	}
 
+	private static void setPropertyNullFriendly(Properties properties, String key, Object value) {
+		if (value != null) {
+			properties.setProperty(key, value.toString());
+		}
+	}
+
+	//	public static void main(String[] args) throws Exception {
+	//		var encoded = new CustomProperties().encrypt("strongpass");
+	//		System.out.println(encoded);
+	//		var decoded = new CustomProperties().decrypt(encoded);
+	//		System.out.println(decoded);
+	//		System.out.println(Arrays.toString(decoded.getBytes()));
+	//	}
 }

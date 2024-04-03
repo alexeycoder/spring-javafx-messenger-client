@@ -1,0 +1,909 @@
+2024-04-03T00:55:03.988Z  INFO 306217 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 306217 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T00:55:03.993Z  INFO 306217 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T00:55:04.209Z  INFO 306217 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T00:55:04.281Z  INFO 306217 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 3 JPA repository interfaces.
+2024-04-03T00:55:04.452Z  INFO 306217 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T00:55:04.472Z  INFO 306217 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T00:55:04.485Z  INFO 306217 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T00:55:04.595Z  INFO 306217 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T00:55:04.717Z  WARN 306217 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T00:55:05.094Z  INFO 306217 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T00:55:05.117Z  INFO 306217 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T00:55:05.502Z  INFO 306217 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.763 seconds (process running for 2.655)
+2024-04-03T00:55:05.517Z  WARN 306217 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T00:55:35.417Z  WARN 306217 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T00:56:22.629Z  INFO 306217 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T01:00:15.510Z  INFO 309257 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 309257 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T01:00:15.511Z  INFO 309257 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T01:00:15.727Z  INFO 309257 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T01:00:15.805Z  INFO 309257 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 3 JPA repository interfaces.
+2024-04-03T01:00:15.965Z  INFO 309257 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T01:00:15.985Z  INFO 309257 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T01:00:15.999Z  INFO 309257 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T01:00:16.110Z  INFO 309257 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T01:00:16.233Z  WARN 309257 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T01:00:16.615Z  INFO 309257 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T01:00:16.639Z  INFO 309257 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T01:00:17.015Z  INFO 309257 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.734 seconds (process running for 2.436)
+2024-04-03T01:00:17.044Z  WARN 309257 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T01:00:43.008Z  INFO 309257 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T01:01:19.908Z  INFO 309939 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 309939 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T01:01:19.909Z  INFO 309939 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T01:01:20.118Z  INFO 309939 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T01:01:20.195Z  INFO 309939 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 3 JPA repository interfaces.
+2024-04-03T01:01:20.356Z  INFO 309939 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T01:01:20.376Z  INFO 309939 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T01:01:20.389Z  INFO 309939 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T01:01:20.502Z  INFO 309939 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T01:01:20.624Z  WARN 309939 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T01:01:21.006Z  INFO 309939 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T01:01:21.028Z  INFO 309939 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T01:01:21.400Z  INFO 309939 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.703 seconds (process running for 2.606)
+2024-04-03T01:01:21.418Z  WARN 309939 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T01:02:47.261Z  INFO 309939 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T01:02:53.073Z  INFO 310901 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 310901 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T01:02:53.076Z  INFO 310901 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T01:02:53.317Z  INFO 310901 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T01:02:53.395Z  INFO 310901 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 3 JPA repository interfaces.
+2024-04-03T01:02:53.557Z  INFO 310901 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T01:02:53.577Z  INFO 310901 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T01:02:53.591Z  INFO 310901 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T01:02:53.699Z  INFO 310901 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T01:02:53.821Z  WARN 310901 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T01:02:54.229Z  INFO 310901 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T01:02:54.254Z  INFO 310901 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T01:02:54.635Z  INFO 310901 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.798 seconds (process running for 2.595)
+2024-04-03T01:02:54.650Z  WARN 310901 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T01:02:58.416Z  INFO 310901 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T01:05:21.012Z  INFO 312535 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 312535 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T01:05:21.013Z  INFO 312535 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T01:05:21.221Z  INFO 312535 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T01:05:21.290Z  INFO 312535 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 3 JPA repository interfaces.
+2024-04-03T01:05:21.459Z  INFO 312535 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T01:05:21.479Z  INFO 312535 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T01:05:21.493Z  INFO 312535 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T01:05:21.605Z  INFO 312535 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T01:05:21.724Z  WARN 312535 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T01:05:22.094Z  INFO 312535 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T01:05:22.117Z  INFO 312535 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T01:05:22.507Z  INFO 312535 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.714 seconds (process running for 2.6)
+2024-04-03T01:05:22.524Z  WARN 312535 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T01:05:29.224Z  INFO 312535 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T01:05:51.468Z  INFO 312940 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 312940 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T01:05:51.469Z  INFO 312940 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T01:05:51.676Z  INFO 312940 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T01:05:51.748Z  INFO 312940 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 3 JPA repository interfaces.
+2024-04-03T01:05:51.919Z  INFO 312940 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T01:05:51.939Z  INFO 312940 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T01:05:51.952Z  INFO 312940 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T01:05:52.059Z  INFO 312940 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T01:05:52.183Z  WARN 312940 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T01:05:52.561Z  INFO 312940 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T01:05:52.585Z  INFO 312940 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T01:05:52.954Z  INFO 312940 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.708 seconds (process running for 2.532)
+2024-04-03T01:05:52.969Z  WARN 312940 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T01:06:31.558Z  INFO 312940 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T04:34:34.950Z  INFO 6491 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 6491 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T04:34:34.950Z  INFO 6491 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T04:34:35.178Z  INFO 6491 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T04:34:35.257Z  INFO 6491 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 3 JPA repository interfaces.
+2024-04-03T04:34:35.426Z  INFO 6491 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T04:34:35.451Z  INFO 6491 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T04:34:35.464Z  INFO 6491 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T04:34:35.576Z  INFO 6491 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T04:34:35.714Z  WARN 6491 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T04:34:36.102Z  INFO 6491 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T04:34:36.128Z  INFO 6491 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T04:34:36.510Z  INFO 6491 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.795 seconds (process running for 2.839)
+2024-04-03T04:34:36.529Z  WARN 6491 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T04:35:53.391Z  INFO 6491 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T04:49:41.734Z  INFO 8262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 8262 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T04:49:41.735Z  INFO 8262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T04:49:41.967Z  INFO 8262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T04:49:42.040Z  INFO 8262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 3 JPA repository interfaces.
+2024-04-03T04:49:42.217Z  INFO 8262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T04:49:42.238Z  INFO 8262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T04:49:42.252Z  INFO 8262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T04:49:42.372Z  INFO 8262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T04:49:42.498Z  WARN 8262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T04:49:42.896Z  INFO 8262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T04:49:42.932Z  INFO 8262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T04:49:43.304Z  INFO 8262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.813 seconds (process running for 2.812)
+2024-04-03T04:49:43.319Z  WARN 8262 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T04:49:55.275Z  WARN 8262 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T04:50:41.389Z  WARN 8262 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T04:51:26.809Z  INFO 8262 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T04:52:00.897Z  INFO 8445 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 8445 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T04:52:00.898Z  INFO 8445 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T04:52:01.122Z  INFO 8445 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T04:52:01.202Z  INFO 8445 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 3 JPA repository interfaces.
+2024-04-03T04:52:01.367Z  INFO 8445 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T04:52:01.388Z  INFO 8445 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T04:52:01.402Z  INFO 8445 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T04:52:01.513Z  INFO 8445 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T04:52:01.641Z  WARN 8445 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T04:52:02.037Z  INFO 8445 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T04:52:02.060Z  INFO 8445 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T04:52:02.455Z  INFO 8445 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.795 seconds (process running for 2.512)
+2024-04-03T04:52:02.474Z  WARN 8445 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T04:52:28.062Z  INFO 8445 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:17:32.246Z  INFO 9891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 9891 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T05:17:32.247Z  INFO 9891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T05:17:32.463Z  INFO 9891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T05:17:32.534Z  INFO 9891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 3 JPA repository interfaces.
+2024-04-03T05:17:32.708Z  INFO 9891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T05:17:32.729Z  INFO 9891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T05:17:32.742Z  INFO 9891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T05:17:32.852Z  INFO 9891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T05:17:32.972Z  WARN 9891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T05:17:33.350Z  INFO 9891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T05:17:33.374Z  INFO 9891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:17:33.759Z  INFO 9891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.749 seconds (process running for 2.521)
+2024-04-03T05:17:33.775Z  WARN 9891 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T05:29:53.588Z  INFO 9891 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:30:51.630Z  INFO 10262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 10262 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T05:30:51.633Z  INFO 10262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T05:30:51.881Z  INFO 10262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T05:30:51.966Z  INFO 10262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81 ms. Found 3 JPA repository interfaces.
+2024-04-03T05:30:52.131Z  INFO 10262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T05:30:52.152Z  INFO 10262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T05:30:52.165Z  INFO 10262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T05:30:52.278Z  INFO 10262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T05:30:52.401Z  WARN 10262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T05:30:52.789Z  INFO 10262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T05:30:52.813Z  INFO 10262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:30:53.217Z  INFO 10262 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.833 seconds (process running for 2.569)
+2024-04-03T05:30:53.233Z  WARN 10262 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T05:32:24.450Z  WARN 10262 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T05:35:18.349Z  WARN 10262 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T05:35:24.718Z  INFO 10262 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:35:34.445Z  INFO 10935 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 10935 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T05:35:34.446Z  INFO 10935 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T05:35:34.661Z  INFO 10935 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T05:35:34.741Z  INFO 10935 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 3 JPA repository interfaces.
+2024-04-03T05:35:34.905Z  INFO 10935 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T05:35:34.926Z  INFO 10935 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T05:35:34.946Z  INFO 10935 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T05:35:35.054Z  INFO 10935 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T05:35:35.177Z  WARN 10935 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T05:35:35.569Z  INFO 10935 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T05:35:35.595Z  INFO 10935 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:35:35.997Z  INFO 10935 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.76 seconds (process running for 2.694)
+2024-04-03T05:35:36.017Z  WARN 10935 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T05:35:41.138Z  INFO 10935 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:40:10.058Z  INFO 11282 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 11282 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T05:40:10.059Z  INFO 11282 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T05:40:10.277Z  INFO 11282 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T05:40:10.358Z  INFO 11282 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 3 JPA repository interfaces.
+2024-04-03T05:40:10.522Z  INFO 11282 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T05:40:10.542Z  INFO 11282 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T05:40:10.556Z  INFO 11282 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T05:40:10.671Z  INFO 11282 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T05:40:10.795Z  WARN 11282 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T05:40:11.185Z  INFO 11282 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T05:40:11.209Z  INFO 11282 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:40:11.588Z  INFO 11282 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.782 seconds (process running for 2.455)
+2024-04-03T05:40:11.608Z  WARN 11282 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T05:46:33.729Z  INFO 11282 --- [spring-javafx-messenger-client] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:46:40.696Z  INFO 11738 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 11738 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T05:46:40.697Z  INFO 11738 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T05:46:40.913Z  INFO 11738 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T05:46:40.999Z  INFO 11738 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 82 ms. Found 3 JPA repository interfaces.
+2024-04-03T05:46:41.158Z  INFO 11738 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T05:46:41.179Z  INFO 11738 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T05:46:41.192Z  INFO 11738 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T05:46:41.306Z  INFO 11738 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T05:46:41.436Z  WARN 11738 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T05:46:41.843Z  INFO 11738 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T05:46:41.868Z  INFO 11738 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:46:42.269Z  INFO 11738 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.784 seconds (process running for 2.741)
+2024-04-03T05:46:42.288Z  WARN 11738 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T05:46:49.020Z  INFO 11738 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:48:45.499Z  INFO 12001 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 12001 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T05:48:45.500Z  INFO 12001 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T05:48:45.783Z  INFO 12001 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T05:48:45.868Z  INFO 12001 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81 ms. Found 3 JPA repository interfaces.
+2024-04-03T05:48:46.043Z  INFO 12001 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T05:48:46.064Z  INFO 12001 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T05:48:46.079Z  INFO 12001 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T05:48:46.202Z  INFO 12001 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T05:48:46.334Z  WARN 12001 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T05:48:46.746Z  INFO 12001 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T05:48:46.770Z  INFO 12001 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:48:47.200Z  INFO 12001 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.974 seconds (process running for 2.993)
+2024-04-03T05:48:47.220Z  WARN 12001 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T05:48:56.431Z  WARN 12001 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T05:49:54.953Z  INFO 12001 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:50:01.374Z  INFO 12164 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 12164 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T05:50:01.375Z  INFO 12164 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T05:50:01.584Z  INFO 12164 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T05:50:01.661Z  INFO 12164 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 3 JPA repository interfaces.
+2024-04-03T05:50:01.830Z  INFO 12164 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T05:50:01.850Z  INFO 12164 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T05:50:01.863Z  INFO 12164 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T05:50:01.974Z  INFO 12164 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T05:50:02.098Z  WARN 12164 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T05:50:02.495Z  INFO 12164 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T05:50:02.519Z  INFO 12164 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T05:50:02.912Z  INFO 12164 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.767 seconds (process running for 2.457)
+2024-04-03T05:50:02.931Z  WARN 12164 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T05:50:22.338Z  INFO 12164 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T06:06:40.993Z  INFO 13269 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 13269 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T06:06:40.994Z  INFO 13269 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T06:06:41.216Z  INFO 13269 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T06:06:41.294Z  INFO 13269 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 3 JPA repository interfaces.
+2024-04-03T06:06:41.458Z  INFO 13269 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T06:06:41.479Z  INFO 13269 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T06:06:41.493Z  INFO 13269 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T06:06:41.607Z  INFO 13269 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T06:06:41.730Z  WARN 13269 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T06:06:42.119Z  INFO 13269 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T06:06:42.143Z  INFO 13269 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T06:06:42.525Z  INFO 13269 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.809 seconds (process running for 2.551)
+2024-04-03T06:06:42.545Z  WARN 13269 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T06:06:51.880Z  WARN 13269 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T06:10:20.930Z  INFO 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 13566 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T06:10:20.931Z  INFO 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T06:10:21.148Z  INFO 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T06:10:21.221Z  INFO 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 3 JPA repository interfaces.
+2024-04-03T06:10:21.398Z  INFO 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T06:10:21.419Z  INFO 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T06:10:21.432Z  INFO 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T06:10:21.540Z  INFO 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T06:10:22.608Z ERROR 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+org.h2.jdbc.JdbcSQLNonTransientConnectionException: База данных уже используется: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Возможные решения: закрыть все другие соединения; использовать режим сервера
+Database may be already in use: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.get(DbException.java:212) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:165) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.Store.<init>(Store.java:142) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.Database.<init>(Database.java:326) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.Engine.openSession(Engine.java:92) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.Engine.openSession(Engine.java:222) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.Engine.createSession(Engine.java:201) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.Driver.connect(Driver.java:59) ~[h2-2.2.224.jar:2.2.224]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:276) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234) ~[spring-context-6.1.5.jar:6.1.5]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952) ~[spring-context-6.1.5.jar:6.1.5]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.5.jar:6.1.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
+	at edu.alexey.messengerclient.JavaFxAsSpringBeanApplication.init(JavaFxAsSpringBeanApplication.java:30) ~[classes/:na]
+	at edu.alexey.messengerclient.App.init(App.java:60) ~[classes/:na]
+	at javafx.graphics@21.0.2/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817) ~[javafx.graphics.jar:na]
+	at javafx.graphics@21.0.2/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196) ~[javafx.graphics.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: /home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.Store.<init>(Store.java:133) ~[h2-2.2.224.jar:2.2.224]
+	... 56 common frames omitted
+
+2024-04-03T06:10:22.611Z  WARN 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
+
+java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(java.sql.SQLException, String)" because the return value of "org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.sqlExceptionHelper()" is null
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:276) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234) ~[spring-context-6.1.5.jar:6.1.5]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952) ~[spring-context-6.1.5.jar:6.1.5]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.5.jar:6.1.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
+	at edu.alexey.messengerclient.JavaFxAsSpringBeanApplication.init(JavaFxAsSpringBeanApplication.java:30) ~[classes/:na]
+	at edu.alexey.messengerclient.App.init(App.java:60) ~[classes/:na]
+	at javafx.graphics@21.0.2/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817) ~[javafx.graphics.jar:na]
+	at javafx.graphics@21.0.2/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196) ~[javafx.graphics.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-04-03T06:10:22.618Z  WARN 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T06:10:22.996Z  INFO 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T06:10:24.005Z ERROR 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+org.h2.jdbc.JdbcSQLNonTransientConnectionException: База данных уже используется: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Возможные решения: закрыть все другие соединения; использовать режим сервера
+Database may be already in use: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.get(DbException.java:212) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:165) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.Store.<init>(Store.java:142) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.Database.<init>(Database.java:326) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.Engine.openSession(Engine.java:92) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.Engine.openSession(Engine.java:222) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.Engine.createSession(Engine.java:201) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.Driver.connect(Driver.java:59) ~[h2-2.2.224.jar:2.2.224]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.getIsolatedConnection(GenerationTargetToDatabase.java:60) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.jdbcStatement(GenerationTargetToDatabase.java:112) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:79) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropTables(SchemaDropperImpl.java:377) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropConstraintsTablesSequences(SchemaDropperImpl.java:253) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:185) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:155) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:115) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:244) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234) ~[spring-context-6.1.5.jar:6.1.5]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952) ~[spring-context-6.1.5.jar:6.1.5]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.5.jar:6.1.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
+	at edu.alexey.messengerclient.JavaFxAsSpringBeanApplication.init(JavaFxAsSpringBeanApplication.java:30) ~[classes/:na]
+	at edu.alexey.messengerclient.App.init(App.java:60) ~[classes/:na]
+	at javafx.graphics@21.0.2/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817) ~[javafx.graphics.jar:na]
+	at javafx.graphics@21.0.2/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196) ~[javafx.graphics.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: /home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.Store.<init>(Store.java:133) ~[h2-2.2.224.jar:2.2.224]
+	... 63 common frames omitted
+
+2024-04-03T06:10:24.016Z  WARN 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 90020, SQLState: 90020
+2024-04-03T06:10:24.020Z ERROR 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.engine.jdbc.spi.SqlExceptionHelper   : База данных уже используется: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Возможные решения: закрыть все другие соединения; использовать режим сервера
+Database may be already in use: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+2024-04-03T06:10:24.028Z ERROR 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [База данных уже используется: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Возможные решения: закрыть все другие соединения; использовать режим сервера
+Database may be already in use: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]] [n/a]
+2024-04-03T06:10:24.029Z  WARN 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [База данных уже используется: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Возможные решения: закрыть все другие соединения; использовать режим сервера
+Database may be already in use: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]] [n/a]
+2024-04-03T06:10:24.036Z  INFO 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-03T06:10:24.047Z ERROR 13566 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [База данных уже используется: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Возможные решения: закрыть все другие соединения; использовать режим сервера
+Database may be already in use: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]] [n/a]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234) ~[spring-context-6.1.5.jar:6.1.5]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952) ~[spring-context-6.1.5.jar:6.1.5]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.5.jar:6.1.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.4.jar:3.2.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.4.jar:3.2.4]
+	at edu.alexey.messengerclient.JavaFxAsSpringBeanApplication.init(JavaFxAsSpringBeanApplication.java:30) ~[classes/:na]
+	at edu.alexey.messengerclient.App.init(App.java:60) ~[classes/:na]
+	at javafx.graphics@21.0.2/com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:817) ~[javafx.graphics.jar:na]
+	at javafx.graphics@21.0.2/com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:196) ~[javafx.graphics.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [База данных уже используется: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Возможные решения: закрыть все другие соединения; использовать режим сервера
+Database may be already in use: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]] [n/a]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833) ~[spring-beans-6.1.5.jar:6.1.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-6.1.5.jar:6.1.5]
+	... 19 common frames omitted
+Caused by: org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [База данных уже используется: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Возможные решения: закрыть все другие соединения; использовать режим сервера
+Database may be already in use: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]] [n/a]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:51) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:74) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.getIsolatedConnection(GenerationTargetToDatabase.java:60) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.jdbcStatement(GenerationTargetToDatabase.java:112) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:79) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropTables(SchemaDropperImpl.java:377) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropConstraintsTablesSequences(SchemaDropperImpl.java:253) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:185) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:155) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:115) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:244) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.5.jar:6.1.5]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.5.jar:6.1.5]
+	... 23 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: База данных уже используется: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Возможные решения: закрыть все другие соединения; использовать режим сервера
+Database may be already in use: "/home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.message.DbException.get(DbException.java:212) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.Store.convertMVStoreException(Store.java:165) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.Store.<init>(Store.java:142) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.Database.<init>(Database.java:326) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.Engine.openSession(Engine.java:92) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.Engine.openSession(Engine.java:222) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.Engine.createSession(Engine.java:201) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.Driver.connect(Driver.java:59) ~[h2-2.2.224.jar:2.2.224]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	... 46 common frames omitted
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: /home/alexey/Projects/diplom/spring-javafx-messenger-client/cache.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035) ~[h2-2.2.224.jar:2.2.224]
+	at org.h2.mvstore.db.Store.<init>(Store.java:133) ~[h2-2.2.224.jar:2.2.224]
+	... 63 common frames omitted
+
+2024-04-03T06:16:55.617Z  INFO 13269 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T06:41:52.879Z  INFO 15596 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 15596 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T06:41:52.881Z  INFO 15596 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T06:41:53.111Z  INFO 15596 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T06:41:53.184Z  INFO 15596 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 3 JPA repository interfaces.
+2024-04-03T06:41:53.368Z  INFO 15596 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T06:41:53.388Z  INFO 15596 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T06:41:53.402Z  INFO 15596 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T06:41:53.522Z  INFO 15596 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T06:41:53.643Z  WARN 15596 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T06:41:54.028Z  INFO 15596 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T06:41:54.051Z  INFO 15596 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T06:41:54.444Z  INFO 15596 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.854 seconds (process running for 2.671)
+2024-04-03T06:41:54.460Z  WARN 15596 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T06:42:10.232Z  INFO 15596 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T06:45:46.464Z  INFO 15947 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 15947 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T06:45:46.465Z  INFO 15947 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T06:45:46.707Z  INFO 15947 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T06:45:46.791Z  INFO 15947 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 3 JPA repository interfaces.
+2024-04-03T06:45:46.954Z  INFO 15947 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T06:45:46.974Z  INFO 15947 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T06:45:46.991Z  INFO 15947 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T06:45:47.122Z  INFO 15947 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T06:45:47.244Z  WARN 15947 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T06:45:47.623Z  INFO 15947 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T06:45:47.646Z  INFO 15947 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T06:45:48.047Z  INFO 15947 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.796 seconds (process running for 2.73)
+2024-04-03T06:45:48.063Z  WARN 15947 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T06:45:50.959Z  INFO 15947 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T06:50:16.136Z  INFO 16358 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 16358 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T06:50:16.137Z  INFO 16358 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T06:50:16.376Z  INFO 16358 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T06:50:16.460Z  INFO 16358 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 3 JPA repository interfaces.
+2024-04-03T06:50:16.637Z  INFO 16358 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T06:50:16.663Z  INFO 16358 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T06:50:16.677Z  INFO 16358 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T06:50:16.790Z  INFO 16358 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T06:50:16.920Z  WARN 16358 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T06:50:17.333Z  INFO 16358 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T06:50:17.358Z  INFO 16358 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T06:50:17.789Z  INFO 16358 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.93 seconds (process running for 2.932)
+2024-04-03T06:50:17.805Z  WARN 16358 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T06:51:12.764Z  INFO 16358 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T06:51:18.826Z  INFO 16509 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 16509 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T06:51:18.827Z  INFO 16509 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T06:51:19.045Z  INFO 16509 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T06:51:19.124Z  INFO 16509 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 3 JPA repository interfaces.
+2024-04-03T06:51:19.288Z  INFO 16509 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T06:51:19.312Z  INFO 16509 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T06:51:19.326Z  INFO 16509 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T06:51:19.433Z  INFO 16509 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T06:51:19.557Z  WARN 16509 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T06:51:19.952Z  INFO 16509 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T06:51:19.976Z  INFO 16509 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T06:51:20.372Z  INFO 16509 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.77 seconds (process running for 2.635)
+2024-04-03T06:51:20.388Z  WARN 16509 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T06:51:34.182Z  INFO 16509 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:02:43.405Z  INFO 17587 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 17587 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T07:02:43.406Z  INFO 17587 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T07:02:43.622Z  INFO 17587 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T07:02:43.692Z  INFO 17587 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 3 JPA repository interfaces.
+2024-04-03T07:02:43.862Z  INFO 17587 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T07:02:43.882Z  INFO 17587 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T07:02:43.898Z  INFO 17587 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T07:02:44.006Z  INFO 17587 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T07:02:44.129Z  WARN 17587 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T07:02:44.509Z  INFO 17587 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T07:02:44.531Z  INFO 17587 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:02:44.918Z  INFO 17587 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.759 seconds (process running for 2.493)
+2024-04-03T07:02:44.934Z  WARN 17587 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T07:03:05.276Z  INFO 17587 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:05:29.190Z  INFO 17891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 17891 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T07:05:29.191Z  INFO 17891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T07:05:29.400Z  INFO 17891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T07:05:29.470Z  INFO 17891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 3 JPA repository interfaces.
+2024-04-03T07:05:29.641Z  INFO 17891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T07:05:29.661Z  INFO 17891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T07:05:29.675Z  INFO 17891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T07:05:29.791Z  INFO 17891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T07:05:29.914Z  WARN 17891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T07:05:30.310Z  INFO 17891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T07:05:30.334Z  INFO 17891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:05:30.728Z  INFO 17891 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.766 seconds (process running for 2.581)
+2024-04-03T07:05:30.744Z  WARN 17891 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T07:05:42.307Z  INFO 17891 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:06:00.638Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 18116 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T07:06:00.640Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T07:06:00.852Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T07:06:00.929Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 3 JPA repository interfaces.
+2024-04-03T07:06:01.093Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T07:06:01.113Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T07:06:01.127Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T07:06:01.241Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T07:06:01.252Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-03T07:06:01.351Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./cache user=SA
+2024-04-03T07:06:01.352Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-03T07:06:01.362Z  WARN 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T07:06:01.751Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T07:06:01.774Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:06:01.778Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/main.fxml
+2024-04-03T07:06:02.071Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/signup.fxml
+2024-04-03T07:06:02.071Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/find.fxml
+2024-04-03T07:06:02.177Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.75 seconds (process running for 2.68)
+2024-04-03T07:06:02.179Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.preloader.BasicPreloader           : Preloader: BEFORE START - Close preloader stage
+2024-04-03T07:06:02.197Z  WARN 18116 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T07:06:50.847Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Login initialed
+2024-04-03T07:06:50.848Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Checking authorization for user.user
+2024-04-03T07:06:51.092Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Obtained User UUID a55d4baf-5aa9-40ae-a4fa-47a4643c6f4f
+2024-04-03T07:06:51.093Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Starting messaging service
+2024-04-03T07:06:51.187Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Started scheduledExecutor
+2024-04-03T07:06:51.187Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Started messaging service
+2024-04-03T07:07:29.752Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Closing scheduledExecutor
+2024-04-03T07:07:29.753Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Closed scheduledExecutor
+2024-04-03T07:07:29.753Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:07:29.754Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-03T07:07:29.767Z  INFO 18116 --- [spring-javafx-messenger-client] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-03T07:10:08.326Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 18380 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T07:10:08.328Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T07:10:08.546Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T07:10:08.624Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 3 JPA repository interfaces.
+2024-04-03T07:10:08.788Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T07:10:08.808Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T07:10:08.822Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T07:10:08.932Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T07:10:08.943Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-03T07:10:09.048Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./cache user=SA
+2024-04-03T07:10:09.048Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-03T07:10:09.059Z  WARN 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T07:10:09.450Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T07:10:09.472Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:10:09.476Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/main.fxml
+2024-04-03T07:10:09.773Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/signup.fxml
+2024-04-03T07:10:09.774Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/find.fxml
+2024-04-03T07:10:09.873Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.796 seconds (process running for 2.521)
+2024-04-03T07:10:09.876Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.preloader.BasicPreloader           : Preloader: BEFORE START - Close preloader stage
+2024-04-03T07:10:09.891Z  WARN 18380 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T07:10:11.438Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Login initialed
+2024-04-03T07:10:11.438Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Checking authorization for user.user
+2024-04-03T07:10:11.674Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Obtained User UUID a55d4baf-5aa9-40ae-a4fa-47a4643c6f4f
+2024-04-03T07:10:11.674Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Starting messaging service
+2024-04-03T07:10:11.779Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Started scheduledExecutor
+2024-04-03T07:10:11.779Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Started messaging service
+2024-04-03T07:10:19.045Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Closing scheduledExecutor
+2024-04-03T07:10:19.046Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Closed scheduledExecutor
+2024-04-03T07:10:19.054Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:10:19.058Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-03T07:10:19.268Z  INFO 18380 --- [spring-javafx-messenger-client] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-03T07:13:15.135Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 18765 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T07:13:15.136Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T07:13:15.348Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T07:13:15.425Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 3 JPA repository interfaces.
+2024-04-03T07:13:15.587Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T07:13:15.609Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T07:13:15.622Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T07:13:15.761Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T07:13:15.772Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-03T07:13:15.884Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./cache user=SA
+2024-04-03T07:13:15.884Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-03T07:13:15.895Z  WARN 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T07:13:16.298Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T07:13:16.321Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:13:16.325Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/main.fxml
+2024-04-03T07:13:16.621Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/signup.fxml
+2024-04-03T07:13:16.622Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/find.fxml
+2024-04-03T07:13:16.713Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.797 seconds (process running for 2.694)
+2024-04-03T07:13:16.715Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.preloader.BasicPreloader           : Preloader: BEFORE START - Close preloader stage
+2024-04-03T07:13:16.732Z  WARN 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T07:13:18.782Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Login initialed
+2024-04-03T07:13:18.782Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Checking authorization for user.user
+2024-04-03T07:13:19.027Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Obtained User UUID a55d4baf-5aa9-40ae-a4fa-47a4643c6f4f
+2024-04-03T07:13:19.028Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Starting messaging service
+2024-04-03T07:13:19.123Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Started scheduledExecutor
+2024-04-03T07:13:19.123Z  INFO 18765 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:13:19.123Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Started messaging service
+2024-04-03T07:13:31.378Z  WARN 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T07:13:39.356Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Closing scheduledExecutor
+2024-04-03T07:13:39.357Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Closed scheduledExecutor
+2024-04-03T07:13:39.358Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:13:39.362Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-03T07:13:39.566Z  INFO 18765 --- [spring-javafx-messenger-client] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-03T07:16:26.691Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 19039 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T07:16:26.692Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T07:16:26.905Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T07:16:26.976Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 3 JPA repository interfaces.
+2024-04-03T07:16:27.148Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T07:16:27.168Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T07:16:27.181Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T07:16:27.289Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T07:16:27.299Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-03T07:16:27.400Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./cache user=SA
+2024-04-03T07:16:27.401Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-03T07:16:27.412Z  WARN 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T07:16:27.790Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T07:16:27.813Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:16:27.817Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/main.fxml
+2024-04-03T07:16:28.110Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/signup.fxml
+2024-04-03T07:16:28.110Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/find.fxml
+2024-04-03T07:16:28.203Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.741 seconds (process running for 2.462)
+2024-04-03T07:16:28.219Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.preloader.BasicPreloader           : Preloader: BEFORE START - Close preloader stage
+2024-04-03T07:16:28.233Z  WARN 19039 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T07:16:32.101Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Login initialed
+2024-04-03T07:16:32.102Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Checking authorization for user.user
+2024-04-03T07:16:32.349Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Obtained User UUID a55d4baf-5aa9-40ae-a4fa-47a4643c6f4f
+2024-04-03T07:16:32.349Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Starting messaging service
+2024-04-03T07:16:32.447Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Started scheduledExecutor
+2024-04-03T07:16:32.447Z  INFO 19039 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:16:32.447Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Started messaging service
+2024-04-03T07:16:34.447Z  INFO 19039 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:16:36.447Z  INFO 19039 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:16:38.447Z  INFO 19039 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:16:40.447Z  INFO 19039 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:16:42.447Z  INFO 19039 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:16:44.447Z  INFO 19039 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:16:45.953Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Closing scheduledExecutor
+2024-04-03T07:16:45.953Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Closed scheduledExecutor
+2024-04-03T07:16:45.954Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:16:45.956Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-03T07:16:45.972Z  INFO 19039 --- [spring-javafx-messenger-client] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-03T07:22:26.048Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 19496 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T07:22:26.049Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T07:22:26.262Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T07:22:26.340Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 3 JPA repository interfaces.
+2024-04-03T07:22:26.504Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T07:22:26.524Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T07:22:26.537Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T07:22:26.650Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T07:22:26.661Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-03T07:22:26.767Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./cache user=SA
+2024-04-03T07:22:26.768Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-03T07:22:26.778Z  WARN 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T07:22:27.163Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T07:22:27.186Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:22:27.190Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/main.fxml
+2024-04-03T07:22:27.485Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/signup.fxml
+2024-04-03T07:22:27.485Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/find.fxml
+2024-04-03T07:22:27.581Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.75 seconds (process running for 2.695)
+2024-04-03T07:22:27.583Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.preloader.BasicPreloader           : Preloader: BEFORE START - Close preloader stage
+2024-04-03T07:22:27.601Z  WARN 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T07:22:30.405Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Login initialed
+2024-04-03T07:22:30.405Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Checking authorization for user.user
+2024-04-03T07:22:30.638Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Obtained User UUID a55d4baf-5aa9-40ae-a4fa-47a4643c6f4f
+2024-04-03T07:22:30.638Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Starting messaging service
+2024-04-03T07:22:30.735Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Started scheduledExecutor
+2024-04-03T07:22:30.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:30.735Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Started messaging service
+2024-04-03T07:22:32.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:34.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:36.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:38.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:40.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:42.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:42.857Z  WARN 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T07:22:44.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:46.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:48.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:50.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:52.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:54.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:56.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:22:58.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:00.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:02.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:04.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:06.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:08.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:10.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:12.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:14.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:16.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:18.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:20.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:22.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:24.562Z  WARN 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T07:23:24.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:26.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:28.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:30.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:32.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:34.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:36.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:38.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:40.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:42.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:44.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:46.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:48.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:50.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:52.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:54.735Z  INFO 19496 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:23:54.846Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Closing scheduledExecutor
+2024-04-03T07:23:54.846Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Closed scheduledExecutor
+2024-04-03T07:23:54.847Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:23:54.848Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-03T07:23:55.056Z  INFO 19496 --- [spring-javafx-messenger-client] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-03T07:29:19.833Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Starting application using Java 21.0.2 with PID 20175 (started by alexey in /home/alexey/Projects/diplom/spring-javafx-messenger-client)
+2024-04-03T07:29:19.834Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : No active profile set, falling back to 1 default profile: "default"
+2024-04-03T07:29:20.053Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-03T07:29:20.131Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 3 JPA repository interfaces.
+2024-04-03T07:29:20.299Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-03T07:29:20.320Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-03T07:29:20.333Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-03T07:29:20.443Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-03T07:29:20.455Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-03T07:29:20.558Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./cache user=SA
+2024-04-03T07:29:20.558Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-03T07:29:20.569Z  WARN 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-04-03T07:29:20.963Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-03T07:29:20.986Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:29:20.990Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/main.fxml
+2024-04-03T07:29:21.283Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/signup.fxml
+2024-04-03T07:29:21.284Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] e.a.m.view.abstractions.SpringFxmlView   : FXML URL: file:/home/alexey/Projects/diplom/spring-javafx-messenger-client/target/classes/edu/alexey/messengerclient/view/find.fxml
+2024-04-03T07:29:21.373Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX-Launcher] o.s.boot.SpringApplication               : Started application in 1.801 seconds (process running for 2.487)
+2024-04-03T07:29:21.375Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.preloader.BasicPreloader           : Preloader: BEFORE START - Close preloader stage
+2024-04-03T07:29:21.394Z  WARN 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T07:29:29.491Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Login initialed
+2024-04-03T07:29:29.491Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Checking authorization for user.user
+2024-04-03T07:29:29.739Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Obtained User UUID a55d4baf-5aa9-40ae-a4fa-47a4643c6f4f
+2024-04-03T07:29:29.739Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Starting messaging service
+2024-04-03T07:29:29.833Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Started scheduledExecutor
+2024-04-03T07:29:29.833Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.ConnectionService         : Started messaging service
+2024-04-03T07:29:29.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:31.147Z  WARN 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] javafx                                   : Loading FXML document with JavaFX API of version 22 by JavaFX runtime of version 21.0.2
+2024-04-03T07:29:31.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:33.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:35.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:37.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:39.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:41.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:43.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:45.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:47.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:49.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:51.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:53.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:55.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:57.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:29:59.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:30:01.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:30:03.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:30:05.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:30:07.833Z  INFO 20175 --- [spring-javafx-messenger-client] [pool-5-thread-1] e.a.m.services.MessagingService          : Check updates
+2024-04-03T07:30:08.591Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Closing scheduledExecutor
+2024-04-03T07:30:08.591Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] e.a.m.services.MessagingService          : Closed scheduledExecutor
+2024-04-03T07:30:08.591Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-03T07:30:08.592Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-03T07:30:08.796Z  INFO 20175 --- [spring-javafx-messenger-client] [JavaFX Application Thread] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

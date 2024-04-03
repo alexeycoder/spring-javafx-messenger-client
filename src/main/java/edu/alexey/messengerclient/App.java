@@ -2,6 +2,7 @@ package edu.alexey.messengerclient;
 
 import java.beans.PropertyChangeEvent;
 import java.util.Optional;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import edu.alexey.messengerclient.bundles.LocaleManager;
 import edu.alexey.messengerclient.bundles.Messages;
 import edu.alexey.messengerclient.preloader.BasicPreloader;
+import edu.alexey.messengerclient.utils.CustomProperties;
+import edu.alexey.messengerclient.utils.DialogManager;
 import edu.alexey.messengerclient.view.MainView;
 import javafx.application.Platform;
 import javafx.application.Preloader;
@@ -19,19 +22,23 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @SpringBootApplication
 public class App extends JavaFxAsSpringBeanApplication {
 
 	@Autowired
 	private MainView mainView;
+	@Autowired
+	private CustomProperties customProperties;
 
 	private Stage primaryStage;
 	private VBox root;
-	//private final Disposer disposer = new Disposer();
 
 	public static void main(String[] args) {
 
+		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 		System.setProperty("javafx.preloader", BasicPreloader.class.getCanonicalName());
 		launchSpringJavaFxApp(App.class, args);
 	}
@@ -56,10 +63,12 @@ public class App extends JavaFxAsSpringBeanApplication {
 	@Override
 	public void start(Stage stage) throws Exception {
 
+		LocaleManager.setCurrent(customProperties.getLanguage());
+
 		primaryStage = stage;
 
 		root = (VBox) mainView.getRootNode();
-		Scene scene = new Scene(root, 720, 480);
+		Scene scene = new Scene(root, 900, 600);
 
 		stage.setTitle(Messages.getString("app_name")); //$NON-NLS-1$
 		stage.setMinWidth(600);
@@ -75,7 +84,11 @@ public class App extends JavaFxAsSpringBeanApplication {
 				} catch (InterruptedException e) {
 					return;
 				}
-				Platform.runLater(stage::centerOnScreen);
+				Platform.runLater(() -> {
+					stage.setWidth(900);
+					stage.setHeight(600);
+					stage.centerOnScreen();
+				});
 			}).start();
 		});
 		stage.addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, this::closeWindowEventFilter);
@@ -96,6 +109,14 @@ public class App extends JavaFxAsSpringBeanApplication {
 
 	private void closeWindowEventFilter(WindowEvent event) {
 		System.out.println("Window close requested...");
+		try {
+			customProperties.save();
+		} catch (Exception e) {
+			log.error("Error on custom properties save.", e);
+			DialogManager.showErrorDialog(
+					Messages.getString("ui.error"),
+					Messages.getString("ui.error.unable_save_config"));
+		}
 
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.getButtonTypes().removeAll(ButtonType.OK);
@@ -114,7 +135,7 @@ public class App extends JavaFxAsSpringBeanApplication {
 	}
 
 	private void closeWindowEventHandler(WindowEvent event) {
-		//		disposer.releaseResources();
+
 	}
 
 	@Override
