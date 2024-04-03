@@ -10,9 +10,9 @@ public record IncomingMessageDto(UUID messageUuid, UUID senderUuid, UUID address
 		if (messageUuid == null) {
 			throw new IllegalArgumentException("messageUuid cannot be null");
 		}
-		if (senderUuid == null && addresseeUuid == null) {
-			throw new IllegalArgumentException("Both senderUuid and addresseeUuid cannot be null simultaneously");
-		}
+		//		if (senderUuid == null && addresseeUuid == null) {
+		//			throw new IllegalArgumentException("Both senderUuid and addresseeUuid cannot be null simultaneously");
+		//		}
 		if (sentAt == null) {
 			throw new IllegalArgumentException("sentAt cannot be null");
 		}

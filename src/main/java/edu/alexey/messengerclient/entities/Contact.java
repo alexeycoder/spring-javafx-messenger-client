@@ -35,9 +35,9 @@ public class Contact implements Serializable {
 		this(null, null);
 	}
 
-	public Contact(UUID userUuid, String username) {
+	public Contact(UUID userUuid, String displayName) {
 		this.userUuid = userUuid;
-		this.displayNameProperty = new SimpleStringProperty(username);
+		this.displayNameProperty = new SimpleStringProperty(displayName);
 	}
 
 	@Id

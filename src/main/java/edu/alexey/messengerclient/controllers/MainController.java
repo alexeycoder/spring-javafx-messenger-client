@@ -112,6 +112,12 @@ public class MainController {
 	@Getter
 	@FXML
 	private Circle indicatorConnectionStatus;
+	@Getter
+	@FXML
+	private Label labelUserUuid;
+	@Getter
+	@FXML
+	private TextField textFieldUserUuid;
 
 	@FXML
 	private Accordion accordionSettings;
@@ -153,7 +159,7 @@ public class MainController {
 		listViewCurrentConversation.setCellFactory(lv -> new MessageListViewCell());
 		listViewCurrentConversation.setItems(conversationMessages);
 
-		listViewConversations.setCellFactory(lv -> new ConversationListViewCell());
+		listViewConversations.setCellFactory(lv -> new ConversationListViewCell(customProperties.getUserUuid()));
 		listViewConversations.setItems(conversations);
 
 		listViewConversations.getSelectionModel().selectedItemProperty()
@@ -325,13 +331,11 @@ public class MainController {
 	@FXML
 	public void actionConnect(ActionEvent event) {
 
-		if (!connectionService.checkAuthorization()) {
+		if (!connectionService.login()) {
 			DialogManager.showConfirmDialog(Messages.getString("ui.main.settings.failure"),
 					Messages.getString("ui.main.settings.login_unauthorized"));
 			return;
 		}
-
-		connectionService.login();
 
 		indicatorConnectionStatus.setFill(Color.GREEN);
 		labelConnectionStatus.setText(Messages.getString("ui.main.status.connected"));
@@ -370,15 +374,24 @@ public class MainController {
 	@FXML
 	public void actionFindContact(ActionEvent event) {
 
-		var result = showFindContactDialog(((Node) event.getSource()).getScene().getWindow());
-		result.ifPresent(signupData -> {
+		List<ContactDto> result = showFindContactDialog(((Node) event.getSource()).getScene().getWindow());
+		System.out.println("RESULT " + result.size());
+		System.out.println(result);
 
-		});
+		List<Conversation> resultToAdd = result.stream()
+				.peek(dto -> System.out.println("DTO" + dto))
+				.map(conversationService::createConversationIfNotExistsAndSave)
+				.peek(o -> System.out.println("Opt" + o))
+				.flatMap(Optional::stream)
+				.peek(c -> System.out.println("Conv" + c))
+				.toList();
+		System.out.println("RESULT TO ADD " + resultToAdd);
+		Platform.runLater(() -> conversations.addAll(resultToAdd));
 	}
 
-	private Optional<ContactDto> showFindContactDialog(Window owner) {
+	private List<ContactDto> showFindContactDialog(Window owner) {
 
-		var viewModel = new BasicViewModel<Void, ContactDto>(null);
+		var viewModel = new BasicViewModel<Void, List<ContactDto>>(null);
 
 		Stage stage = new Stage();
 		Parent parent = findContactView.getRootNode();
@@ -409,7 +422,7 @@ public class MainController {
 		stage.setScene(null);
 		scene.setRoot(new Group()); // удаляем имеющийся корневой узел из графа
 
-		return Optional.ofNullable(viewModel.getResult());
+		return viewModel.getResult();
 	}
 
 	//	private void printConversationsForTest() {

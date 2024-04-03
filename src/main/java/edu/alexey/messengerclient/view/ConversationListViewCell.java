@@ -1,5 +1,7 @@
 package edu.alexey.messengerclient.view;
 
+import java.util.UUID;
+
 import edu.alexey.messengerclient.entities.Conversation;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -27,9 +29,13 @@ public class ConversationListViewCell extends ListCell<Conversation> {
 	private final VBox root;
 	private final Label labelDisplayName;
 	private final Label labelUuid;
+	private final Circle circle;
+	private final UUID selfUuid;
 
-	public ConversationListViewCell() {
-		labelDisplayName = new Label(null, new Circle(6, Color.LIGHTBLUE));
+	public ConversationListViewCell(UUID selfUuid) {
+		this.selfUuid = selfUuid;
+		circle = new Circle(6, Color.LIGHTBLUE);
+		labelDisplayName = new Label(null, circle);
 		labelUuid = new Label();
 		Font font = labelUuid.getFont();
 		labelUuid.setFont(new Font(font.getName(), font.getSize() - 2));
@@ -59,7 +65,12 @@ public class ConversationListViewCell extends ListCell<Conversation> {
 			setGraphic(null);
 		} else {
 			labelDisplayName.setText(item.getContact().getDisplayName());
-			labelUuid.setText(item.getContact().getUserUuid().toString());
+			UUID contactUuid = item.getContact().getUserUuid();
+			labelUuid.setText(contactUuid.toString());
+			if (contactUuid.equals(selfUuid)) {
+				circle.setFill(Color.WHITE);
+				circle.setStroke(Color.BLACK);
+			}
 			setGraphic(root);
 		}
 	}

@@ -14,6 +14,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -39,141 +40,98 @@
 									<content>
 										<GridPane hgap="10.0" vgap="5.0">
 											<columnConstraints>
-												<ColumnConstraints
-													hgrow="SOMETIMES"
-													minWidth="10.0"
-													prefWidth="100.0" />
-												<ColumnConstraints
-													hgrow="SOMETIMES"
-													minWidth="10.0"
-													prefWidth="100.0" />
+												<ColumnConstraints hgrow="SOMETIMES"
+													minWidth="10.0" prefWidth="100.0" />
+												<ColumnConstraints hgrow="SOMETIMES"
+													minWidth="10.0" prefWidth="100.0" />
 											</columnConstraints>
 											<rowConstraints>
-												<RowConstraints minHeight="10.0"
-													prefHeight="30.0"
+												<RowConstraints minHeight="10.0" prefHeight="30.0"
 													vgrow="NEVER" />
-												<RowConstraints minHeight="10.0"
-													prefHeight="30.0"
+												<RowConstraints minHeight="10.0" prefHeight="30.0"
 													vgrow="NEVER" />
-												<RowConstraints minHeight="10.0"
-													prefHeight="30.0"
+												<RowConstraints minHeight="10.0" prefHeight="30.0"
 													vgrow="NEVER" />
-												<RowConstraints minHeight="10.0"
-													prefHeight="30.0"
+												<RowConstraints minHeight="10.0" prefHeight="30.0"
 													vgrow="NEVER" />
-												<RowConstraints minHeight="5.0"
-													prefHeight="5.0"
+												<RowConstraints minHeight="5.0" prefHeight="5.0"
 													vgrow="NEVER" />
-												<RowConstraints minHeight="10.0"
-													prefHeight="30.0"
+												<RowConstraints minHeight="10.0" prefHeight="30.0"
 													vgrow="NEVER" />
-												<RowConstraints minHeight="10.0"
-													prefHeight="30.0"
+												<RowConstraints minHeight="10.0" prefHeight="30.0"
 													vgrow="NEVER" />
-												<RowConstraints minHeight="10.0"
-													prefHeight="30.0"
+												<RowConstraints minHeight="10.0" prefHeight="30.0"
 													vgrow="NEVER" />
-												<RowConstraints minHeight="10.0"
-													prefHeight="30.0"
+												<RowConstraints minHeight="10.0" prefHeight="30.0"
 													vgrow="NEVER" />
-												<RowConstraints minHeight="30.0"
+												<RowConstraints minHeight="30.0" vgrow="NEVER" />
+												<RowConstraints minHeight="10.0" prefHeight="30.0"
 													vgrow="NEVER" />
-												<RowConstraints minHeight="10.0"
-													prefHeight="30.0"
+												<RowConstraints minHeight="10.0" prefHeight="30.0"
 													vgrow="NEVER" />
 											</rowConstraints>
 											<children>
-												<Label
-													text="%ui.main.settings.credentials"
-													GridPane.columnSpan="2147483647"
-													GridPane.halignment="CENTER"
+												<Label text="%ui.main.settings.credentials"
+													GridPane.columnSpan="2147483647" GridPane.halignment="CENTER"
 													GridPane.rowIndex="5" />
-												<Label
-													text="%ui.main.settings.display_name"
-													GridPane.halignment="RIGHT"
+												<Label text="%ui.main.settings.display_name"
+													GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+												<TextField fx:id="textFieldDisplayName" maxWidth="150.0"
+													GridPane.columnIndex="1" GridPane.halignment="LEFT"
 													GridPane.rowIndex="6" />
-												<TextField
-													fx:id="textFieldDisplayName"
-													maxWidth="150.0"
-													GridPane.columnIndex="1"
-													GridPane.halignment="LEFT"
-													GridPane.rowIndex="6" />
-												<Label
-													text="%ui.main.settings.username"
-													GridPane.halignment="RIGHT"
+												<Label text="%ui.main.settings.username"
+													GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+												<TextField fx:id="textFieldUsername" maxWidth="150.0"
+													GridPane.columnIndex="1" GridPane.halignment="LEFT"
 													GridPane.rowIndex="7" />
-												<TextField
-													fx:id="textFieldUsername"
-													maxWidth="150.0"
-													GridPane.columnIndex="1"
-													GridPane.halignment="LEFT"
-													GridPane.rowIndex="7" />
-												<Button fx:id="buttonConnect"
-													mnemonicParsing="false"
-													onAction="#actionConnect"
-													text="%ui.main.settings.connect"
-													GridPane.columnSpan="2147483647"
-													GridPane.halignment="CENTER"
+												<Button fx:id="buttonConnect" mnemonicParsing="false"
+													onAction="#actionConnect" text="%ui.main.settings.connect"
+													GridPane.columnSpan="2147483647" GridPane.halignment="CENTER"
 													GridPane.rowIndex="9">
 													<font>
 														<Font size="18.0" />
 													</font>
 													<GridPane.margin>
-														<Insets bottom="10.0"
-															top="10.0" />
+														<Insets bottom="10.0" top="10.0" />
 													</GridPane.margin>
 												</Button>
-												<Button mnemonicParsing="false"
-													onAction="#actionSignup"
+												<Button mnemonicParsing="false" onAction="#actionSignup"
 													text="%ui.main.settings.registration"
-													GridPane.columnSpan="2147483647"
-													GridPane.halignment="CENTER"
+													GridPane.columnSpan="2147483647" GridPane.halignment="CENTER"
 													GridPane.rowIndex="10" />
-												<Label
-													text="%ui.main.settings.password"
-													GridPane.halignment="RIGHT"
+												<Label text="%ui.main.settings.password"
+													GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+												<PasswordField fx:id="passwordField" maxWidth="150.0"
+													GridPane.columnIndex="1" GridPane.halignment="LEFT"
 													GridPane.rowIndex="8" />
-												<PasswordField
-													fx:id="passwordField"
-													maxWidth="150.0"
-													GridPane.columnIndex="1"
-													GridPane.halignment="LEFT"
-													GridPane.rowIndex="8" />
-												<Separator
-													GridPane.columnSpan="2147483647"
+												<Separator GridPane.columnSpan="2147483647"
 													GridPane.rowIndex="4" />
-												<Label
-													text="%ui.main.settings.server_address"
-													GridPane.columnSpan="2147483647"
-													GridPane.halignment="CENTER" />
-												<Label
-													text="%ui.main.settings.server_host"
-													GridPane.halignment="RIGHT"
-													GridPane.rowIndex="1" />
-												<Label
-													text="%ui.main.settings.server_port"
-													GridPane.halignment="RIGHT"
-													GridPane.rowIndex="2" />
+												<Label text="%ui.main.settings.server_address"
+													GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" />
+												<Label text="%ui.main.settings.server_host"
+													GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+												<Label text="%ui.main.settings.server_port"
+													GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
 												<Button mnemonicParsing="false"
 													onAction="#actionCheckConnection"
 													text="%ui.main.settings.check_connection"
-													GridPane.columnSpan="2147483647"
-													GridPane.halignment="CENTER"
+													GridPane.columnSpan="2147483647" GridPane.halignment="CENTER"
 													GridPane.rowIndex="3" />
-												<TextField
-													fx:id="textFieldServerHost"
-													maxWidth="150.0"
-													promptText="%ui.main.settings.server_host"
-													GridPane.columnIndex="1"
-													GridPane.halignment="LEFT"
-													GridPane.rowIndex="1" />
-												<TextField
-													fx:id="textFieldServerPort"
-													maxWidth="150.0"
-													promptText="%ui.main.settings.server_port"
-													GridPane.columnIndex="1"
-													GridPane.halignment="LEFT"
-													GridPane.rowIndex="2" />
+												<TextField fx:id="textFieldServerHost" maxWidth="150.0"
+													promptText="%ui.main.settings.server_host" GridPane.columnIndex="1"
+													GridPane.halignment="LEFT" GridPane.rowIndex="1" />
+												<TextField fx:id="textFieldServerPort" maxWidth="150.0"
+													promptText="%ui.main.settings.server_port" GridPane.columnIndex="1"
+													GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+												<TextField fx:id="textFieldUserUuid" alignment="CENTER"
+													editable="false" maxWidth="310.0"
+													promptText="%ui.main.settings.user_unique_id"
+													GridPane.columnSpan="2147483647" GridPane.halignment="CENTER"
+													GridPane.rowIndex="11">
+													<tooltip>
+														<Tooltip text="%ui.main.settings.user_unique_id" />
+													</tooltip>
+												</TextField>
 											</children>
 										</GridPane>
 									</content>
@@ -183,30 +141,20 @@
 									<content>
 										<GridPane hgap="10.0" vgap="5.0">
 											<columnConstraints>
-												<ColumnConstraints
-													halignment="RIGHT"
-													hgrow="SOMETIMES"
-													minWidth="10.0"
-													prefWidth="100.0" />
-												<ColumnConstraints
-													hgrow="SOMETIMES"
-													minWidth="10.0"
-													prefWidth="100.0" />
+												<ColumnConstraints halignment="RIGHT"
+													hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+												<ColumnConstraints hgrow="SOMETIMES"
+													minWidth="10.0" prefWidth="100.0" />
 											</columnConstraints>
 											<rowConstraints>
-												<RowConstraints minHeight="10.0"
-													prefHeight="30.0"
+												<RowConstraints minHeight="10.0" prefHeight="30.0"
 													vgrow="NEVER" />
-												<RowConstraints minHeight="10.0"
-													prefHeight="30.0"
+												<RowConstraints minHeight="10.0" prefHeight="30.0"
 													vgrow="SOMETIMES" />
 											</rowConstraints>
 											<children>
-												<Label
-													text="%ui.main.settings.language" />
-												<ComboBox
-													fx:id="comboBoxLanguage"
-													prefWidth="150.0"
+												<Label text="%ui.main.settings.language" />
+												<ComboBox fx:id="comboBoxLanguage" prefWidth="150.0"
 													GridPane.columnIndex="1" />
 											</children>
 										</GridPane>
@@ -223,19 +171,18 @@
 							<items>
 								<VBox alignment="TOP_CENTER">
 									<children>
-										<Label
-											text="%ui.main.communication.conversations" />
-										<ListView fx:id="listViewConversations"
-											prefHeight="200.0" prefWidth="200.0"
-											VBox.vgrow="ALWAYS" />
-										<Button fx:id="buttonFindContact"
-											onAction="#actionFindContact"
-											maxWidth="1.7976931348623157E308"
-											mnemonicParsing="false"
+										<Label text="%ui.main.communication.conversations" />
+										<ListView fx:id="listViewConversations" prefHeight="200.0"
+											prefWidth="200.0" VBox.vgrow="ALWAYS">
+											<placeholder>
+												<Label text="%ui.no_content" />
+											</placeholder>
+										</ListView>
+										<Button maxWidth="1.7976931348623157E308"
+											mnemonicParsing="false" onAction="#actionFindContact"
 											text="%ui.dialog.find_contact">
 											<VBox.margin>
-												<Insets bottom="5.0" left="5.0"
-													right="5.0" top="5.0" />
+												<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 											</VBox.margin>
 										</Button>
 									</children>
@@ -245,37 +192,29 @@
 										<HBox prefHeight="80.0" spacing="10.0"
 											BorderPane.alignment="CENTER">
 											<children>
-												<TextArea
-													fx:id="textAreaMessageToSend"
+												<TextArea fx:id="textAreaMessageToSend"
 													HBox.hgrow="SOMETIMES" />
-												<VBox alignment="CENTER"
-													minWidth="-Infinity"
-													spacing="10.0">
+												<VBox alignment="CENTER" minWidth="-Infinity" spacing="10.0">
 													<children>
-														<Button
-															defaultButton="true"
-															mnemonicParsing="false"
-															onAction="#actionSend"
-															text="%ui.main.send" />
-														<Button
-															cancelButton="true"
-															mnemonicParsing="false"
-															onAction="#actionClear"
-															text="%ui.main.clear" />
+														<Button defaultButton="true" mnemonicParsing="false"
+															onAction="#actionSend" text="%ui.main.send" />
+														<Button cancelButton="true" mnemonicParsing="false"
+															onAction="#actionClear" text="%ui.main.clear" />
 													</children>
 												</VBox>
 											</children>
 											<BorderPane.margin>
-												<Insets bottom="5.0" left="5.0"
-													right="5.0" top="5.0" />
+												<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 											</BorderPane.margin>
 										</HBox>
 									</bottom>
 									<center>
-										<ListView
-											fx:id="listViewCurrentConversation"
-											prefHeight="200.0" prefWidth="200.0"
-											BorderPane.alignment="CENTER" />
+										<ListView fx:id="listViewCurrentConversation"
+											prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+											<placeholder>
+												<Label text="%ui.no_content" />
+											</placeholder>
+										</ListView>
 									</center>
 									<top>
 										<Label fx:id="labelCurrentConversation"
@@ -290,20 +229,36 @@
 			</tabs>
 		</TabPane>
 		<Separator prefWidth="200.0" />
-		<HBox alignment="CENTER_LEFT" spacing="10.0">
-			<children>
-				<Circle fx:id="indicatorConnectionStatus" fill="TRANSPARENT"
-					radius="6.0" stroke="BLACK" strokeType="INSIDE" />
-				<Label text="%ui.main.status" />
-				<Label fx:id="labelConnectionStatus"
-					text="%ui.main.status.disconnected" />
-			</children>
+		<GridPane>
 			<VBox.margin>
-				<Insets />
-			</VBox.margin>
-			<padding>
 				<Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-			</padding>
-		</HBox>
+			</VBox.margin>
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+				<ColumnConstraints hgrow="ALWAYS" minWidth="10.0"
+					prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<HBox alignment="CENTER_LEFT" spacing="10.0">
+					<children>
+						<Circle fx:id="indicatorConnectionStatus" fill="TRANSPARENT"
+							radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+						<Label text="%ui.main.status" />
+						<Label fx:id="labelConnectionStatus"
+							text="%ui.main.status.disconnected" />
+						<Separator orientation="VERTICAL" />
+					</children>
+				</HBox>
+				<Label fx:id="labelUserUuid" text="—" GridPane.columnIndex="1"
+					GridPane.halignment="RIGHT">
+					<tooltip>
+						<Tooltip text="%ui.main.settings.user_unique_id" />
+					</tooltip>
+				</Label>
+			</children>
+		</GridPane>
 	</children>
 </VBox>

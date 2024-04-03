@@ -12,6 +12,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Optional;
 import java.util.Properties;
 import java.util.UUID;
 
@@ -38,6 +39,7 @@ public class CustomProperties {
 	static final String KEY_CLIENT_UUID = "client_uuid";
 	static final String KEY_SERVER_HOST = "host";
 	static final String KEY_SERVER_PORT = "port";
+	static final String KEY_USER_UUID = "user_uuid";
 	static final String KEY_USERNAME = "username";
 	static final String KEY_PASSWORD = "password";
 	static final String KEY_DISPLAY_NAME = "display_name";
@@ -60,6 +62,7 @@ public class CustomProperties {
 	private String language;
 	private String serverHost;
 	private String serverPort;
+	private UUID userUuid;
 	private String displayName;
 	private String username;
 	private String password;
@@ -107,6 +110,19 @@ public class CustomProperties {
 			this.serverPort = value;
 			if (!suppressPropertyChangeEvent)
 				pcs.firePropertyChange("serverPort", oldValue, value);
+		}
+	}
+
+	public UUID getUserUuid() {
+		return userUuid;
+	}
+
+	public void setUserUuid(UUID value) {
+		UUID oldValue = this.userUuid;
+		if (!Objects.equal(value, oldValue)) {
+			this.userUuid = value;
+			if (!suppressPropertyChangeEvent)
+				pcs.firePropertyChange("userUuid", oldValue, value);
 		}
 	}
 
@@ -178,6 +194,9 @@ public class CustomProperties {
 		this.language = properties.getProperty(KEY_LANGUAGE, DEFAULT_LANGUAGE);
 		this.serverHost = properties.getProperty(KEY_SERVER_HOST, DEFAULT_SERVER_HOST);
 		this.serverPort = properties.getProperty(KEY_SERVER_PORT, DEFAULT_SERVER_PORT);
+		this.userUuid = Optional.ofNullable(properties.getProperty(KEY_USER_UUID, null))
+				.map(UUID::fromString)
+				.orElse(null);
 		this.displayName = properties.getProperty(KEY_DISPLAY_NAME, null);
 		this.username = properties.getProperty(KEY_USERNAME, null);
 		String passwordEncoded = properties.getProperty(KEY_PASSWORD, null);
@@ -197,6 +216,7 @@ public class CustomProperties {
 		this.language = DEFAULT_LANGUAGE;
 		this.serverHost = DEFAULT_SERVER_HOST;
 		this.serverPort = DEFAULT_SERVER_PORT;
+		this.userUuid = null;
 		this.displayName = null;
 		this.username = null;
 		this.password = null;
@@ -209,6 +229,7 @@ public class CustomProperties {
 		setPropertyNullFriendly(properties, KEY_LANGUAGE, this.language);
 		setPropertyNullFriendly(properties, KEY_SERVER_HOST, this.serverHost);
 		setPropertyNullFriendly(properties, KEY_SERVER_PORT, this.serverPort);
+		setPropertyNullFriendly(properties, KEY_USER_UUID, this.userUuid);
 		setPropertyNullFriendly(properties, KEY_DISPLAY_NAME, this.displayName);
 		setPropertyNullFriendly(properties, KEY_USERNAME, this.username);
 		String passwordEncoded = null;

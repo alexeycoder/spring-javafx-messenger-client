@@ -10,4 +10,6 @@ import edu.alexey.messengerclient.entities.Conversation;
 public interface ConversationRepository extends JpaRepository<Conversation, Integer> {
 
 	Conversation findByContact(Contact contact);
+
+	boolean existsByContact(Contact contact);
 }

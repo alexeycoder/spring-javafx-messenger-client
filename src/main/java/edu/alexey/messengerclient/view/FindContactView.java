@@ -1,5 +1,7 @@
 package edu.alexey.messengerclient.view;
 
+import java.util.List;
+
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +17,7 @@ public class FindContactView extends SpringFxmlView {
 		super("find");
 	}
 
-	public void setViewModel(ViewModel<Void, ContactDto> viewModel) {
+	public void setViewModel(ViewModel<Void, List<ContactDto>> viewModel) {
 		if (super.controller instanceof FindContactViewModelConsumer viewModelConsumer) {
 			viewModelConsumer.accept(viewModel);
 		} else {

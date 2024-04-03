@@ -1,8 +1,8 @@
 package edu.alexey.messengerclient.services;
 
 import java.net.URI;
+import java.util.UUID;
 
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -12,8 +12,10 @@ import com.google.common.base.Objects;
 
 import edu.alexey.messengerclient.dto.SignupDto;
 import edu.alexey.messengerclient.utils.CustomProperties;
+import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 
+@Slf4j
 @Service
 public class ConnectionService {
 
@@ -26,6 +28,8 @@ public class ConnectionService {
 	private URI baseUri;
 	private String username;
 	private String password;
+
+	private UUID userUuid;
 
 	public ConnectionService(CustomProperties customProperties, MessagingService messagingService) {
 		this.customProperties = customProperties;
@@ -113,26 +117,36 @@ public class ConnectionService {
 			return false;
 		}
 
+		log.info("Checking authorization for {}", username);
+
 		URI uri = UriComponentsBuilder.fromUri(baseUri).path("/client").build().toUri();
 
-		Boolean isOk = webClient.get().uri(uri)
+		userUuid = webClient.get().uri(uri)
 				.headers(headers -> {
 					headers.setBasicAuth(username, password);
-					System.out.println(headers.get(HttpHeaders.AUTHORIZATION));
 				})
-				.exchangeToMono(response -> {
-					System.out.println(response.toString());
-					System.out.println(response.statusCode());
-					return Mono.just(response.statusCode().is2xxSuccessful());
-				})
-				.onErrorReturn(false)
+				.retrieve()
+				.bodyToMono(UUID.class)
+				.onErrorResume(t -> Mono.empty())
 				.block();
-		return isOk;
+
+		customProperties.setUserUuid(userUuid);
+		log.info("Obtained User UUID {}", userUuid);
+
+		return userUuid != null;
 	}
 
-	public void login() {
+	public boolean login() {
+		log.info("Login initialed");
+		if (checkAuthorization()) {
 
-		messagingService.start(baseUri, customProperties.getClientUuid(), username, password);
+			log.info("Starting messaging service");
+			messagingService.start(baseUri, customProperties.getClientUuid(), username, password, userUuid);
+			log.info("Started messaging service");
+			return true;
+		}
+		log.info("Login failed due to authorization fail");
+		return false;
 	}
 
 }

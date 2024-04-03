@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClient.RequestHeadersSpec;
 
+import edu.alexey.messengerclient.dto.ContactDto;
 import edu.alexey.messengerclient.dto.IncomingMessageDto;
 import edu.alexey.messengerclient.dto.OutgoingMessageDto;
 import edu.alexey.messengerclient.entities.Contact;
@@ -50,6 +51,7 @@ public class MessagingService {
 
 	private UUID clientUuid;
 	private WebClient webClient;
+	private UUID userUuid;
 	private volatile UUID mostRecentMessageUuid;
 
 	private ScheduledExecutorService scheduledExecutor;
@@ -75,10 +77,11 @@ public class MessagingService {
 		this.onUpdatedCallback = onUpdatedCallback;
 	}
 
-	public void start(URI baseUri, UUID clientUuid, String username, String password) {
+	public void start(URI baseUri, UUID clientUuid, String username, String password, UUID userUuid) {
 
 		stop();
 
+		this.userUuid = userUuid;
 		this.clientUuid = clientUuid;
 		webClient = WebClient.builder()
 				.baseUrl(baseUri.toString())
@@ -103,17 +106,23 @@ public class MessagingService {
 		// checkUpdates();
 		scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
 		scheduledExecutor.scheduleAtFixedRate(this::checkUpdates, 0, REFRESH_PERIOD_SEC, TimeUnit.SECONDS);
+		log.info("Started scheduledExecutor");
 	}
 
 	public void stop() {
 		if (scheduledExecutor != null) {
+			log.info("Closing scheduledExecutor");
 			scheduledExecutor.close();
 			scheduledExecutor = null;
+			isUpdating = false;
+			log.info("Closed scheduledExecutor");
 		}
 		webClient = null;
 	}
 
 	private void checkUpdates() {
+
+		log.info("Check updates");
 
 		if (isUpdating) {
 			return;
@@ -124,21 +133,24 @@ public class MessagingService {
 			isUpdating = false;
 			return;
 		}
+		try {
+			Integer status = webClient.get().uri("/client/{client_uuid}", clientUuid)
+					.retrieve()
+					.bodyToMono(Integer.class)
+					.onErrorResume(e -> Mono.empty())
+					.block();
 
-		Integer status = webClient.get().uri("/client/{client_uuid}", clientUuid)
-				.retrieve()
-				.bodyToMono(Integer.class)
-				.onErrorResume(e -> Mono.empty())
-				.block();
+			if (status == null || status == 0) {
+				isUpdating = false;
+				return;
+			}
 
-		if (status == null || status == 0) {
+			getIncomingMessages();
+		} catch (Exception e) {
+			log.error("Exception has been thrown when checking updates", e);
+		} finally {
 			isUpdating = false;
-			return;
 		}
-
-		getIncomingMessages();
-
-		isUpdating = false;
 	}
 
 	@Transactional
@@ -172,6 +184,10 @@ public class MessagingService {
 					})
 					.block();
 
+			if (incomingMessages.isEmpty()) {
+				return;
+			}
+
 			newMessages = incomingMessages.stream().map(dto -> {
 
 				Message message = new Message();
@@ -182,6 +198,9 @@ public class MessagingService {
 				if (countersideUuid == null) {
 					message.setOwn(true);
 					countersideUuid = dto.addresseeUuid();
+					if (countersideUuid == null) {
+						countersideUuid = userUuid;
+					}
 				} else {
 					message.setOwn(false);
 				}
@@ -264,6 +283,32 @@ public class MessagingService {
 			return true;
 		}
 		return false;
+	}
+
+	public List<ContactDto> findUsersByUserUuid(String uuidPattern) {
+
+		List<ContactDto> result = webClient.get().uri(uriBuilder -> uriBuilder
+				.path("/users")
+				.queryParam("uuid", uuidPattern.toLowerCase())
+				.build())
+				.retrieve()
+				.bodyToMono(new ParameterizedTypeReference<List<ContactDto>>() {
+				}).block();
+
+		return result;
+	}
+
+	public List<ContactDto> findUsersByDisplayName(String displayNamePattern) {
+
+		List<ContactDto> result = webClient.get().uri(uriBuilder -> uriBuilder
+				.path("/users")
+				.queryParam("display_name", displayNamePattern)
+				.build())
+				.retrieve()
+				.bodyToMono(new ParameterizedTypeReference<List<ContactDto>>() {
+				}).block();
+
+		return result;
 	}
 
 	//	public static void main(String[] args) {

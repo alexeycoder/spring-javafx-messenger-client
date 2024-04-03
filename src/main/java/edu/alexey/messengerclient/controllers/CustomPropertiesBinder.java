@@ -1,5 +1,7 @@
 package edu.alexey.messengerclient.controllers;
 
+import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -9,8 +11,8 @@ import edu.alexey.messengerclient.utils.CustomProperties;
 import edu.alexey.messengerclient.utils.StringUtils;
 import jakarta.annotation.PostConstruct;
 import javafx.application.Platform;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -55,8 +57,6 @@ public class CustomPropertiesBinder {
 		TextField textFieldUsername = mainController.getTextFieldUsername();
 		PasswordField passwordField = mainController.getPasswordField();
 
-		Button buttonConnect = mainController.getButtonConnect();
-
 		if (updateUi) {
 
 			suppressUiChangeHandlers = true;
@@ -71,12 +71,20 @@ public class CustomPropertiesBinder {
 
 			// Credentials
 
-			textFieldDisplayName.setText(customProperties.getDisplayName());
-			textFieldUsername.setText(customProperties.getUsername());
-			passwordField.setText(customProperties.getPassword());
-			buttonConnect.setDisable(
-					customProperties.getUsername() == null
-							|| customProperties.getPassword() == null);
+			//			labelUserUuid.setText(userUuidStr);
+			//			textFieldUserUuid.setText(userUuidStr);
+			//			textFieldDisplayName.setText(customProperties.getDisplayName());
+			//			textFieldUsername.setText(customProperties.getUsername());
+			//			passwordField.setText(customProperties.getPassword());
+			//			buttonConnect.setDisable(
+			//					customProperties.getUsername() == null
+			//							|| customProperties.getPassword() == null);
+
+			actualizeUserUuidIndications(customProperties.getUserUuid());
+			actualizeTextField(textFieldDisplayName, customProperties.getDisplayName());
+			actualizeTextField(textFieldUsername, customProperties.getUsername());
+			actualizeTextField(passwordField, customProperties.getPassword());
+			actualizeButtonConnect();
 
 			suppressUiChangeHandlers = false;
 			customProperties.setSuppressPropertyChangeEvent(false);
@@ -132,12 +140,15 @@ public class CustomPropertiesBinder {
 
 			handleCredentialsPropertiesChanged(
 					evt.getPropertyName(),
-					evt.getNewValue() == null ? null : evt.getNewValue().toString());
+					evt.getNewValue());
+
+			handleUserUuidPropertyChanged(evt.getPropertyName(), evt.getNewValue());
 
 		});
 	}
 
-	private void handleCredentialsPropertiesChanged(String propertyName, String newValue) {
+	private void handleCredentialsPropertiesChanged(String propertyName, Object newValue) {
+
 		TextField textField = switch (propertyName) {
 		case "username" -> mainController.getTextFieldUsername();
 		case "displayName" -> mainController.getTextFieldDisplayName();
@@ -149,18 +160,23 @@ public class CustomPropertiesBinder {
 			return;
 		}
 
+		actualizeTextField(textField, newValue);
+		actualizeButtonConnect();
+	}
+
+	private void actualizeTextField(TextField textField, Object newValue) {
+		assert textField != null : "textField must not be null";
+
+		String newValueStr = Objects.toString(newValue, null);
+
 		Runnable action = () -> {
 			customProperties.setSuppressPropertyChangeEvent(true);
 			suppressUiChangeHandlers = true;
 			int pos = textField.getCaretPosition();
-			textField.setText(newValue);
+			textField.setText(newValueStr);
 			textField.positionCaret(pos);
 			customProperties.setSuppressPropertyChangeEvent(false);
 			suppressUiChangeHandlers = false;
-
-			mainController.getButtonConnect().setDisable(
-					StringUtils.isNullOrBlank(customProperties.getUsername())
-							|| StringUtils.isNullOrBlank(customProperties.getPassword()));
 		};
 
 		if (Platform.isFxApplicationThread()) {
@@ -170,7 +186,32 @@ public class CustomPropertiesBinder {
 		} else {
 			Platform.runLater(action);
 		}
+	}
 
+	private void actualizeButtonConnect() {
+		mainController.getButtonConnect().setDisable(
+				StringUtils.isNullOrBlank(customProperties.getUsername())
+						|| StringUtils.isNullOrBlank(customProperties.getPassword()));
+	}
+
+	private void handleUserUuidPropertyChanged(String propertyName, Object newValue) {
+
+		if (!"userUuid".equals(propertyName)) {
+			return;
+		}
+
+		actualizeUserUuidIndications(newValue);
+	}
+
+	private void actualizeUserUuidIndications(Object newValue) {
+		String strLabel = newValue != null ? newValue.toString() : NO_DATA_PLACEHOLDER;
+		String strTextField = newValue != null ? newValue.toString() : null;
+		Label labelUserUuid = mainController.getLabelUserUuid();
+		TextField textFieldUserUuid = mainController.getTextFieldUserUuid();
+		Platform.runLater(() -> {
+			labelUserUuid.setText(strLabel);
+			textFieldUserUuid.setText(strTextField);
+		});
 	}
 
 }

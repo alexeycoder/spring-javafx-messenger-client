@@ -26,7 +26,7 @@ logging:
     name: ./logs/app.log
     clean-history-on-start: true
   level:
-    ROOT: warn
+    ROOT: info
     '[org.springframework]': info
     '[org.hibernate]': info
   pattern:

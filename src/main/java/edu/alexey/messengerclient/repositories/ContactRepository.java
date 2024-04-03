@@ -11,4 +11,6 @@ import edu.alexey.messengerclient.entities.Contact;
 public interface ContactRepository extends JpaRepository<Contact, Integer> {
 
 	Contact findByUserUuid(UUID userUuid);
+
+	boolean existsByUserUuid(UUID userUuid);
 }
