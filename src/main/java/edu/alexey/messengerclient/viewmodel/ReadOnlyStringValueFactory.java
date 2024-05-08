@@ -1,6 +1,6 @@
 package edu.alexey.messengerclient.viewmodel;
 
-import com.google.common.base.Function;
+import java.util.function.Function;
 
 import javafx.beans.property.ReadOnlyStringPropertyBase;
 import javafx.beans.value.ObservableValue;

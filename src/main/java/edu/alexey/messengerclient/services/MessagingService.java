@@ -122,8 +122,6 @@ public class MessagingService {
 
 	private void checkUpdates() {
 
-		log.info("Check updates");
-
 		if (isUpdating) {
 			return;
 		}

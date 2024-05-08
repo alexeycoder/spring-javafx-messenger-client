@@ -6,6 +6,7 @@ import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Lazy;
 
 import edu.alexey.messengerclient.bundles.LocaleManager;
 import edu.alexey.messengerclient.bundles.Messages;
@@ -25,6 +26,7 @@ import javafx.stage.WindowEvent;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Lazy
 @SpringBootApplication
 public class App extends JavaFxAsSpringBeanApplication {
 
@@ -38,13 +40,19 @@ public class App extends JavaFxAsSpringBeanApplication {
 
 	public static void main(String[] args) {
 
+		System.out.println(
+				"MAIN THREAD: " + Thread.currentThread().getName() + " ID = " + Thread.currentThread().threadId());
+
 		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 		System.setProperty("javafx.preloader", BasicPreloader.class.getCanonicalName());
 		launchSpringJavaFxApp(App.class, args);
 	}
 
 	@Override
-	public void init() throws Exception {
+	public void init() {
+
+		System.out.println(
+				"INIT App THREAD: " + Thread.currentThread().getName() + " ID = " + Thread.currentThread().threadId());
 		// Имитация инициализации приложения
 		new Thread(() -> {
 			for (int i = 0; i <= 100; ++i) {
@@ -61,23 +69,26 @@ public class App extends JavaFxAsSpringBeanApplication {
 	}
 
 	@Override
-	public void start(Stage stage) throws Exception {
+	public void start(Stage primaryStage) throws Exception {
+
+		this.primaryStage = primaryStage;
+
+		System.out.println(
+				"START THREAD: " + Thread.currentThread().getName() + " ID = " + Thread.currentThread().threadId());
 
 		LocaleManager.setCurrent(customProperties.getLanguage());
-
-		primaryStage = stage;
 
 		root = (VBox) mainView.getRootNode();
 		Scene scene = new Scene(root, 900, 600);
 
-		stage.setTitle(Messages.getString("app_name")); //$NON-NLS-1$
-		stage.setMinWidth(600);
-		stage.setMinHeight(400);
+		primaryStage.setTitle(Messages.getString("app_name")); //$NON-NLS-1$
+		primaryStage.setMinWidth(600);
+		primaryStage.setMinHeight(400);
 
-		stage.setScene(scene);
-		stage.sizeToScene();
-		stage.centerOnScreen();
-		stage.setOnShown(event -> {
+		primaryStage.setScene(scene);
+		primaryStage.sizeToScene();
+		primaryStage.centerOnScreen();
+		primaryStage.setOnShown(event -> {
 			new Thread(() -> {
 				try {
 					Thread.sleep(100);
@@ -85,16 +96,16 @@ public class App extends JavaFxAsSpringBeanApplication {
 					return;
 				}
 				Platform.runLater(() -> {
-					stage.setWidth(900);
-					stage.setHeight(600);
-					stage.centerOnScreen();
+					primaryStage.setWidth(900);
+					primaryStage.setHeight(600);
+					primaryStage.centerOnScreen();
 				});
 			}).start();
 		});
-		stage.addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, this::closeWindowEventFilter);
-		stage.setOnHidden(this::closeWindowEventHandler);
+		primaryStage.addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, this::closeWindowEventFilter);
+		primaryStage.setOnHidden(this::closeWindowEventHandler);
 
-		stage.show();
+		primaryStage.show();
 
 		LocaleManager.addLangChangeListener(this::reload);
 	}
@@ -139,7 +150,7 @@ public class App extends JavaFxAsSpringBeanApplication {
 	}
 
 	@Override
-	public void stop() throws Exception {
+	public void stop() {
 		super.stop();
 		System.exit(0);
 	}

@@ -1,14 +1,13 @@
 package edu.alexey.messengerclient.services;
 
 import java.net.URI;
+import java.util.Objects;
 import java.util.UUID;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import com.google.common.base.Objects;
 
 import edu.alexey.messengerclient.dto.SignupDto;
 import edu.alexey.messengerclient.utils.CustomProperties;
@@ -99,7 +98,7 @@ public class ConnectionService {
 				.block();
 
 		System.out.printf("Response string = %s%n", responseStr);
-		if (!Objects.equal(responseStr, signupData.getDisplayName())) {
+		if (!Objects.equals(responseStr, signupData.getDisplayName())) {
 			return false;
 		}
 

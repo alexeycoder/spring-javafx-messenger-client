@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
-import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
@@ -41,13 +40,20 @@ public abstract class SpringFxmlView implements ApplicationContextAware {
 	private ApplicationContext applicationContext;
 
 	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+	public void setApplicationContext(ApplicationContext applicationContext) {
 		if (this.applicationContext == null) {
 			this.applicationContext = applicationContext;
 		}
 	}
 
 	public SpringFxmlView(String fxmlName) {
+		if (fxmlName == null) {
+			throw new IllegalArgumentException(new NullPointerException("fxmlName"));
+		}
+		if (fxmlName.isBlank()) {
+			throw new IllegalArgumentException("fxmlName");
+		}
+
 		//		this.controllerProperty = new SimpleObjectProperty<Object>();
 		this.fxmlUrl = getClass().getResource(FXML_PACKAGE_PREFIX + fxmlName + ".fxml");
 		log.info("FXML URL: {}", fxmlUrl);
