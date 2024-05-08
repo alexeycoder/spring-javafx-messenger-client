@@ -12,6 +12,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Properties;
 import java.util.UUID;
@@ -25,8 +26,6 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.stereotype.Component;
-
-import com.google.common.base.Objects;
 
 import edu.alexey.messengerclient.bundles.LocaleManager;
 import lombok.extern.slf4j.Slf4j;
@@ -78,7 +77,7 @@ public class CustomProperties {
 	public void setLanguage(String value) {
 		value = StringUtils.nullifyEmpty(value);
 		String oldValue = this.language;
-		if (!Objects.equal(value, oldValue)) {
+		if (!Objects.equals(value, oldValue)) {
 			this.language = value;
 			if (!suppressPropertyChangeEvent)
 				pcs.firePropertyChange("language", oldValue, value);
@@ -92,7 +91,7 @@ public class CustomProperties {
 	public void setServerHost(String value) {
 		value = StringUtils.nullifyEmpty(value);
 		String oldValue = this.serverHost;
-		if (!Objects.equal(value, oldValue)) {
+		if (!Objects.equals(value, oldValue)) {
 			this.serverHost = value;
 			if (!suppressPropertyChangeEvent)
 				pcs.firePropertyChange("serverHost", oldValue, value);
@@ -106,7 +105,7 @@ public class CustomProperties {
 	public void setServerPort(String value) {
 		value = StringUtils.nullifyEmpty(value);
 		String oldValue = this.serverPort;
-		if (!Objects.equal(value, oldValue)) {
+		if (!Objects.equals(value, oldValue)) {
 			this.serverPort = value;
 			if (!suppressPropertyChangeEvent)
 				pcs.firePropertyChange("serverPort", oldValue, value);
@@ -119,7 +118,7 @@ public class CustomProperties {
 
 	public void setUserUuid(UUID value) {
 		UUID oldValue = this.userUuid;
-		if (!Objects.equal(value, oldValue)) {
+		if (!Objects.equals(value, oldValue)) {
 			this.userUuid = value;
 			if (!suppressPropertyChangeEvent)
 				pcs.firePropertyChange("userUuid", oldValue, value);
@@ -133,7 +132,7 @@ public class CustomProperties {
 	public void setDisplayName(String value) {
 		value = StringUtils.nullifyEmpty(value);
 		String oldValue = this.displayName;
-		if (!Objects.equal(value, oldValue)) {
+		if (!Objects.equals(value, oldValue)) {
 			this.displayName = value;
 			if (!suppressPropertyChangeEvent)
 				pcs.firePropertyChange("displayName", oldValue, value);
@@ -147,7 +146,7 @@ public class CustomProperties {
 	public void setUsername(String value) {
 		value = StringUtils.nullifyEmpty(value);
 		String oldValue = this.username;
-		if (!Objects.equal(value, oldValue)) {
+		if (!Objects.equals(value, oldValue)) {
 			this.username = value;
 			if (!suppressPropertyChangeEvent)
 				pcs.firePropertyChange("username", oldValue, value);
@@ -161,7 +160,7 @@ public class CustomProperties {
 	public void setPassword(String value) {
 		value = StringUtils.nullifyEmpty(value);
 		String oldValue = this.password;
-		if (!Objects.equal(value, oldValue)) {
+		if (!Objects.equals(value, oldValue)) {
 			this.password = value;
 			if (!suppressPropertyChangeEvent)
 				pcs.firePropertyChange("password", oldValue, value);

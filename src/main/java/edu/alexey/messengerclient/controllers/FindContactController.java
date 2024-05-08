@@ -72,6 +72,9 @@ public class FindContactController implements FindContactViewModelConsumer {
 
 	@FXML
 	private void initialize() {
+		System.out.println(
+				"FIND initialize THREAD: " + Thread.currentThread().getName() + " ID = "
+						+ Thread.currentThread().threadId());
 
 		labelNothingFound.setVisible(false);
 		tableViewSearchResult.setVisible(false);
@@ -108,6 +111,10 @@ public class FindContactController implements FindContactViewModelConsumer {
 
 	@FXML
 	public void actionClose(ActionEvent event) {
+
+		System.out.println(
+				"FIND CLOSE THREAD: " + Thread.currentThread().getName() + " ID = "
+						+ Thread.currentThread().threadId());
 		//		clearElements();
 		if (event.getSource() instanceof Node node) {
 			node.getScene().getWindow().fireEvent(new Event(WindowEvent.WINDOW_CLOSE_REQUEST));

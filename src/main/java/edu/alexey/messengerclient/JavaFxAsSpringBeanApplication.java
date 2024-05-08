@@ -23,9 +23,10 @@ public abstract class JavaFxAsSpringBeanApplication extends Application {
 	protected ConfigurableApplicationContext applicationContext;
 
 	@Override
-	public void init() throws Exception {
+	public void init() {
 
-		System.out.println("INIT THREAD: " + Thread.currentThread().getName());
+		System.out.println(
+				"INIT THREAD: " + Thread.currentThread().getName() + " ID = " + Thread.currentThread().threadId());
 
 		applicationContext = SpringApplication.run(getClass(), args);
 
@@ -38,7 +39,11 @@ public abstract class JavaFxAsSpringBeanApplication extends Application {
 	}
 
 	@Override
-	public void stop() throws Exception {
+	public void stop() {
+
+		System.out.println(
+				"STOP THREAD: " + Thread.currentThread().getName() + " ID = " + Thread.currentThread().threadId());
+
 		applicationContext.close();
 	}
 }
